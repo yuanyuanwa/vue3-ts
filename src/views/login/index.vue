@@ -2,13 +2,6 @@
 	<div class="login">
 		<div style="display:flex;justify-content: center;align-items: center;height: 100%;">
 			<el-card class="box-card" style="width:25%;padding:10px">
-				<!-- <template #header>
-					<div class="card-header">
-						<span>Card name</span>
-						<el-button class="button" type="text">Operation button</el-button>
-					</div>
-				</template>-->
-				<!-- <div v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</div> -->
 				<el-form
 					ref="ruleFormRef"
 					:model="formData"
@@ -30,13 +23,12 @@
 				</el-form>
 			</el-card>
 		</div>
-		<!-- <div>login111</div>
-		<el-button type="primary" @click="say()">Primary</el-button>-->
 	</div>
 </template>
 
 <script lang="ts">
-import { reactive, ref } from 'vue'
+import { reactive, ref, } from 'vue'
+import  {useRouter} from "vue-router";
 export default {
 	name: 'login',
 	setup() {
@@ -44,9 +36,17 @@ export default {
 			pass: '',
 			checkPass: '',
 		})
+		const router = useRouter(); 
+		const submitForm=(ruleFormRef:any)=>{
+			localStorage.setItem('token','123')
+			router.push({name:'home'})
+		}
+
+		
 		//返回一个对象
 		return {
-		formData
+		formData,
+		submitForm
 		}
 	}
 }
