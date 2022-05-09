@@ -79,6 +79,7 @@ export default {
     crumbList: [],
   },
   mutations: {
+    //模块化后的用法:store.commit("login/SET_MENU")
     //左边导航栏列表
     SET_MENU(state: any, menu: Array<any>) {
       state.sidebarMenu = menu
@@ -101,8 +102,8 @@ export default {
     }
   },
   actions: {
+    //模块化后的用法：store.dispatch("login/FETCH_PERMISSION",value)
     async [FETCH_PERMISSION]({ commit }: any) {
-      console.log(123)
       //处理需要动态的路由
       let routes: Array<any> = filterAsyncRouter(permissionList);
       //不需要动态的路由（深拷贝）
@@ -134,7 +135,7 @@ export default {
       commit("SET_PERMISSION", [...initialRoutes, ...DynamicRoutes]);
     },
   },
-  // 用法：store.getters['login/permissionList']
+  // 模块化后的用法：store.getters['login/permissionList']
   getters: {
     permissionList: (state:any) => state.permissionList,
   }
