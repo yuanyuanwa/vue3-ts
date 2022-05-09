@@ -8,7 +8,7 @@
   /* font-family: Avenir, Helvetica, Arial, sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  // text-align: center;
   color: #2c3e50;
   font-family:Arial,'Times New Roman','幼圆',sans-serif;/* 中英文设置不同的字体 */
 }

@@ -44,11 +44,11 @@ router.beforeEach((to: any, from: any, next: any) => {
 });
 router.afterEach((to: any, from: any, next: any) => {
   try {
-      //设置标题
-      if (to.meta.name) {
-          document.title = to.meta.name;
-      }
-  } catch (err) {}
+    //设置标题
+    if (to.meta.name) {
+      document.title = to.meta.name;
+    }
+  } catch (err) { }
   let routerList = to.matched;
   //顶部面包屑
   store.commit("login/setCrumbList", routerList);
@@ -63,22 +63,50 @@ export const DynamicRoutes = [
     path: "/",
     component: () => import('@/views/main.vue'),
     name: "container",
-    redirect: 'home',
+    redirect: 'compDemo',
     meta: {
       // requiresAuth: true,
       name: "首页",
     },
     children: [
       {
-        path: "home",
-        component: () => import('@/views/AboutView.vue'),
-        name: "home",
+        path: "compDemo",
+        component: () => import('@/views/pages/compDemo/index.vue'),
+        name: "CompDemo",
         meta: {
-          name: "首页",
+          name: "组件",
           icon: "el-icon-s-home",
         },
-      }
-
+        children: [
+          {
+            path: "test",
+            component: () => import('@/views/pages/compDemo/test/index.vue'),
+            name: "Test",
+            meta: {
+              name: "组件",
+              icon: "el-icon-s-home",
+            },
+          },
+        ]
+      },
+      {
+        path: "pageDemo",
+        component: () => import('@/views/pages/pageDemo/index.vue'),
+        name: "PageDemo",
+        meta: {
+          name: "页面",
+          icon: "el-icon-s-home",
+        },
+      },
+      {
+        path: "photos",
+        component: () => import('@/views/pages/photos/index.vue'),
+        name: "Photos",
+        meta: {
+          name: "日常",
+          icon: "el-icon-s-home",
+        },
+      },
     ]
 
   }

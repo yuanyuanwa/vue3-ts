@@ -37,7 +37,7 @@ export default defineComponent({
 		const router = useRouter();
 		const submitForm = (ruleFormRef: any) => {
 			localStorage.setItem('token', '123')
-			router.push({ name: 'home' })
+			router.push({ name: 'CompDemo' })
 		}
 
 
