@@ -6,20 +6,18 @@
 					ref="ruleFormRef"
 					:model="formData"
 					status-icon
-					:rules="rules"
-					label-position='right'
+					label-position="right"
 					label-width="70px"
 					class="demo-ruleForm"
 				>
 					<el-form-item label="name：" prop="pass">
-						<el-input v-model="formData.pass" type="password" autocomplete="off" />
+						<el-input v-model="formData.pass" type="text" autocomplete="off" />
 					</el-form-item>
 					<el-form-item label="password：" prop="checkPass">
 						<el-input v-model="formData.checkPass" type="password" autocomplete="off" />
 					</el-form-item>
-			
-						<el-button type="primary" @click="submitForm(ruleFormRef)" style="width:100%">login</el-button>
-		
+
+					<el-button type="primary" @click="submitForm('123')" style="width:100%">login</el-button>
 				</el-form>
 			</el-card>
 		</div>
@@ -27,29 +25,29 @@
 </template>
 
 <script lang="ts">
-import { reactive, ref, } from 'vue'
-import  {useRouter} from "vue-router";
-export default {
+import { defineComponent,reactive, ref, } from 'vue'
+import { useRouter } from "vue-router";
+export default defineComponent({
 	name: 'login',
 	setup() {
 		const formData = reactive({
-			pass: '',
-			checkPass: '',
+			pass: 'admin',
+			checkPass: '123',
 		})
-		const router = useRouter(); 
-		const submitForm=(ruleFormRef:any)=>{
-			localStorage.setItem('token','123')
-			router.push({name:'home'})
+		const router = useRouter();
+		const submitForm = (ruleFormRef: any) => {
+			localStorage.setItem('token', '123')
+			router.push({ name: 'home' })
 		}
 
-		
+
 		//返回一个对象
 		return {
-		formData,
-		submitForm
+			formData,
+			submitForm
 		}
 	}
-}
+})
 </script>
 
 <style lang="scss" scoped>

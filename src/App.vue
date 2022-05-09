@@ -2,13 +2,15 @@
   <router-view/>
 </template>
 
-<style>
+<style lang="scss">
+@import '../src/style/uniformStyle.scss';
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: Avenir, Helvetica, Arial, sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  font-family:Arial,'Times New Roman','幼圆',sans-serif;/* 中英文设置不同的字体 */
 }
 *{
   padding: 0px;
