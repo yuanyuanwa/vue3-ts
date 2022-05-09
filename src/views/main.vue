@@ -1,19 +1,26 @@
 <template>
-  <div class="home">
+  <div >
     <div style="display:flex">
+      <div style="background: #eda7a7;border-bottom: solid 1px #dcdfe6;">
+        <svg class="icon-font" style="width: 70px;height: 60px;">
+          <use xlink:href="#icon-mao" />
+        </svg>
+      </div>
       <el-menu
         style="flex-grow: 1;"
         :default-active="activeIndex"
         class="el-menu-demo"
         mode="horizontal"
-        background-color="#545c64"
+        background-color="#eda7a7"
         text-color="#fff"
-        active-text-color="#ffd04b"
+        active-text-color="#3D708f"
         @select="handleSelect"
       >
-        <el-menu-item index="1">Processing Center</el-menu-item>
-        <el-sub-menu index="2">
-          <template #title>Workspace</template>
+        <el-menu-item index="1">组件</el-menu-item>
+        <el-menu-item index="5">页面</el-menu-item>
+        <el-menu-item index="6">日常photos</el-menu-item>
+        <!-- <el-sub-menu index="2">
+          <template #title>页面</template>
           <el-menu-item index="2-1">item one</el-menu-item>
           <el-menu-item index="2-2">item two</el-menu-item>
           <el-menu-item index="2-3">item three</el-menu-item>
@@ -25,9 +32,12 @@
           </el-sub-menu>
         </el-sub-menu>
         <el-menu-item index="3" disabled>Info</el-menu-item>
-        <el-menu-item index="4">Orders</el-menu-item>
+        <el-menu-item index="4">Orders</el-menu-item>-->
       </el-menu>
-      <div class="pr-10" style="background: #545c64;border-bottom: solid 1px #dcdfe6;color:white;line-height:3;">个人中心</div>
+      <div
+        class="pr-10"
+        style="background: #eda7a7;border-bottom: solid 1px #dcdfe6;color:white;line-height:4;"
+      >hi~端午</div>
     </div>
     <el-button type="primary">Primary</el-button>
     <router-view></router-view>
@@ -44,7 +54,7 @@ export default defineComponent({
     HelloWorld,
   },
   setup() {
-    const activeIndex = ref('2-2')
+    const activeIndex = ref('1')
     const handleSelect = (key: string, keyPath: string[]) => {
       console.log(key, keyPath)
     }
