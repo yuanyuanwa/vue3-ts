@@ -6,7 +6,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/login',
     name: 'login',
-    component: () => import( '@/views/login/index.vue')
+    component: () => import('@/views/login/index.vue')
   },
   // {
   //   path: '/',
@@ -29,20 +29,19 @@ const router = createRouter({
 router.beforeEach((to: any, from: any, next: any) => {
   //未登陆
   if (!window.localStorage.getItem("token") && to.path !== "/login") {
-       next({ path: "/login" });
+    next({ path: "/login" });
   }
   //已登陆
-  if(window.localStorage.getItem("token")&&to.path == "/login") return next({ path: "/" });
+  if (window.localStorage.getItem("token") && to.path == "/login") return next({ path: "/" });
   // 重新加载动态路由
-  if (!store.state.permissionList&&to.path!='/login') {
-  //     // router.removeRoute('router');
-      return store.dispatch("FETCH_PERMISSION").then(() => {
-          next({ ...to, replace: true });
-      });
+  if (!store.state.login.permissionList && to.path != '/login') {
+    return store.dispatch("login/FETCH_PERMISSION").then(() => {
+      next({ ...to, replace: true });
+    });
   } else {
-      next();
+    next();
   }
- 
+
 });
 router.afterEach((to: any, from: any, next: any) => {
   // try {
@@ -62,27 +61,27 @@ router.afterEach((to: any, from: any, next: any) => {
 //固定的路由
 export const DynamicRoutes = [
   {
-      path: "/",
-      component:  () => import( '@/views/HomeView.vue'),
-      name: "container",
-      // redirect: 'home',
-      meta: {
-          // requiresAuth: true,
+    path: "/",
+    component: () => import('@/views/HomeView.vue'),
+    name: "container",
+    // redirect: 'home',
+    meta: {
+      // requiresAuth: true,
+      name: "首页",
+    },
+    children: [
+      {
+        path: "home",
+        component: () => import('@/views/AboutView.vue'),
+        name: "home",
+        meta: {
           name: "首页",
-      },
-      children: [
-          {
-              path: "home",
-              component: () => import('@/views/AboutView.vue'),
-              name: "home",
-              meta: {
-                  name: "首页",
-                  icon: "el-icon-s-home",
-              },
-          }
-          
-      ]
-      
+          icon: "el-icon-s-home",
+        },
+      }
+
+    ]
+
   }
 ];
 export default router

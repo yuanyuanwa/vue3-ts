@@ -1,18 +1,14 @@
+let modules: any = {}
+const files = require.context("./modules", true);
+files.keys().forEach((key) => {
+    const fileName = key.split("/")[1].split(".")[0];
+    modules[fileName] = files(key).default;
+});
+console.log(123123,modules)
+
 import { createStore } from "vuex";
-import mutations from "./mutations";
-import actions from "./actions";
 import getters from "./getters";
 export default createStore({
-    state: {
-        permissionList: null /** 所有路由 */,
-        sidebarMenu: [] /** 导航菜单 */,
-        currentMenu: "" /** 当前active导航菜单 */,
-        /* 导航菜单是否折叠 */
-        isSidebarNavCollapse: false,
-        /* 面包屑导航列表 */
-        crumbList: [],
-    },
-    mutations,
-    actions,
     getters,
+    modules,
 });
