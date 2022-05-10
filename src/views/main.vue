@@ -40,7 +40,7 @@
       >
         <el-popover placement="bottom-start" :width="150" trigger="hover">
           <template #reference>hi~端午</template>
-          <div style="border:2px dashed pink">
+          <div style="border:2px dashed #eda7a7">
             <div style="text-align:center;">
               <el-button type="text">个人中心</el-button>
             </div>

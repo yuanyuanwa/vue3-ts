@@ -1,3 +1,4 @@
+// 用法：store.getters.permissionList 
 const getters={
     GET_MENU:(state:any)=>state.login.sidebarMenu,
     GET_CURRENTMENU:(state:any)=>state.login.currentMenu,
