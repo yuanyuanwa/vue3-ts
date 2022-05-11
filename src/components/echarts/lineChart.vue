@@ -1,13 +1,17 @@
-// 单折线图
+// 单折线 ---vue2来的要改写法 
 <template>
   <div ref="mapBox" style="width:100%;height:100%">
     <div ref="echart" style="height:300px;"></div>
   </div>
+  <div>{{xData}}</div>
 </template>
-<script>
+<script lang="ts">
+import { defineComponent, ref,reactive,watch,toRefs ,onMounted} from 'vue';
 import * as echarts from 'echarts';
-export default {
-  props: {
+
+export default defineComponent({
+  name: '',
+    props: {
     xData: {
       type: Array,
       default: ()=>{
@@ -25,36 +29,27 @@ export default {
       default: 'y轴名称',
     },
   },
-  watch: {
-    xData: {
-      handler(newVal, oldVal) {
-        console.log('oldVal:', oldVal)
-      },
-      immediate: true,
-      deep: true
-    }
-  },
-  data() {
-    return {
-      mapChart: '',
-    }
-  },
-  mounted() {
-    console.log('组件组件组件')
-    this.initMap()
-  },
-  methods: {
-    initMap() {
-      if (this.mapChart != null && this.mapChart != "" && this.mapChart != undefined) {
-        this.mapChart.dispose(); //销毁
-      }
-      let chartDom = this.$refs.echart
-      // let chartDom = document.getElementById('map11');
-      this.mapChart = echarts.init(chartDom);
-      let option;
+  components: {},
+  setup(props:any) {
+    const {xData,xName,yName} = toRefs(props)
+    watch([xData],(newValue,aldValue)=>{
+       console.log('新值：'+newValue,'原值：'+aldValue)
+     })
+    onMounted(()=>{
+      initMap()
+    })
 
-      option = {
-        grid: {
+      let mapChart:any=null //如果需要自适应，这里就不能用ref或者reactive定义
+      let mapBox = ref<any>()
+      let echart = ref<any>();  //也可以用const echart = ref<any>();
+
+      const  initMap=() =>{
+      if (mapChart != null && mapChart != "" && mapChart != undefined) {
+        mapChart.dispose(); //销毁
+      }
+      let chartDom = echart.value
+      mapChart = echarts.init(chartDom);
+      let option=reactive({grid: {
           top: '15%',
           left: '16%',
           right: '2%',
@@ -62,10 +57,10 @@ export default {
         },
         xAxis: {
           type: 'category',
-          data: this.xName
+          data: xName
         },
         yAxis: {
-          name: this.yName,
+          name: yName,
           type: 'value',
           nameGap: 25
         },
@@ -80,23 +75,30 @@ export default {
           {
             showAllSymbol: true,//显示所有数据点
             connectNulls: true,//折线图拼接空数据
-            data: this.xData,
+            data: [150, 230, 224, 218, 135, 147, 260],
             type: 'line',
             name: 'CPU使用率'
           }
-        ]
-      };
+        ]});
 
-      option && this.mapChart.setOption(option);
 
-      let dom = this.$refs.mapBox
-      let ro = new ResizeObserver((entries) => {
-        this.mapChart.resize();
+      option && mapChart.setOption(option);
+
+      let dom =mapBox.value
+      let ro = new ResizeObserver((entries:any) => {
+        mapChart.resize();
       });
       ro.observe(dom);
-    },
+    }
+    //返回一个对象
+    return {
+      mapChart,
+      echart,
+      mapBox,
+      initMap
+    }
   }
-}
+});
 </script>
 
 <style scoped>

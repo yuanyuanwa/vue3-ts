@@ -69,6 +69,7 @@ function filterAsyncRouter(asyncRouterMap: Array<any>) {
 
 export default {
   namespaced: true,//开启命名空间
+  //模块化后的用法:store.state.login.permissionList
   state: {
     permissionList: null /** 所有路由 */,
     sidebarMenu: [] /** 导航菜单 */,
@@ -78,8 +79,8 @@ export default {
     /* 面包屑导航列表 */
     crumbList: [],
   },
+  //模块化后的用法:store.commit("login/SET_MENU")
   mutations: {
-    //模块化后的用法:store.commit("login/SET_MENU")
     //左边导航栏列表
     SET_MENU(state: any, menu: Array<any>) {
       state.sidebarMenu = menu
@@ -101,8 +102,8 @@ export default {
       state.crumbList = list
     }
   },
+  //模块化后的用法：store.dispatch("login/FETCH_PERMISSION",value)
   actions: {
-    //模块化后的用法：store.dispatch("login/FETCH_PERMISSION",value)
     async [FETCH_PERMISSION]({ commit }: any) {
       //处理需要动态的路由
       let routes: Array<any> = filterAsyncRouter(permissionList);

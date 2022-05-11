@@ -1,4 +1,4 @@
-// 堆叠折线图 ---vue2来的要改写法
+// 堆叠折线图  ---vue2来的要改写法
 <template>
   <div ref="mapBox" style="width:100%;height:100%">
     <div ref="echart" style="height:300px;"></div>
@@ -36,7 +36,7 @@ import * as echarts from 'echarts';
 //   },
 //   watch: {
 //     xData: {
-//       handler(newVal:any, oldVal:any) {
+//       handler(newVal, oldVal) {
 //         this.handleData(newVal)
 //       },
 //       immediate: true,
@@ -74,31 +74,34 @@ import * as echarts from 'echarts';
 //       this.mapChart = echarts.init(chartDom);
 //       let option;
 
-//       option = {
-//         tooltip: {
-//           trigger: 'axis'
-//         },
-//         legend: {
-//           data: this.legend,
-//           y: 'bottom',
-//         },
+//        option = {
 //         grid: {
 //           top: '15%',
 //           left: '7%',
 //           right: '2%',
-//           bottom: '20%',
+//           bottom: '10%',
 //           containLabel: true
 //         },
 //         xAxis: {
-//           type: 'category',
-//           boundaryGap: false,
-//           data: this.xName
+//           data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 //         },
 //         yAxis: {
-//           type: 'value',
-//           name: this.yName,
+//           name:'yyyyy'
 //         },
-//         series:  this.series
+//         series: [
+//           {
+//             type: 'bar',
+//             data: [23, 24, 18, 25, 27, 28, 25]
+//           },
+//           {
+//             type: 'bar',
+//             data: [26, 24, 18, 22, 23, 20, 27]
+//           },
+//           {
+//             type: 'bar',
+//             data: [26, 24, 18, 22, 23, 20, 27]
+//           }
+//         ]
 //       };
 
 //       option && this.mapChart.setOption(option);
