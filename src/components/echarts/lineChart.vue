@@ -34,6 +34,7 @@ export default defineComponent({
     const {xData,xName,yName} = toRefs(props)
     watch([xData],(newValue,aldValue)=>{
        console.log('新值：'+newValue,'原值：'+aldValue)
+       initMap()
      })
     onMounted(()=>{
       initMap()
@@ -75,7 +76,7 @@ export default defineComponent({
           {
             showAllSymbol: true,//显示所有数据点
             connectNulls: true,//折线图拼接空数据
-            data: [150, 230, 224, 218, 135, 147, 260],
+            data:xData,
             type: 'line',
             name: 'CPU使用率'
           }
