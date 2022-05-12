@@ -3,15 +3,15 @@
   <div ref="mapBox" style="width:100%;height:100%">
     <div ref="echart" style="height:300px;"></div>
   </div>
-  <div>{{xData}}</div>
+  <div>{{xData}}--{{nextAge}}</div>
 </template>
 <script lang="ts">
-import { defineComponent, ref,reactive,watch,toRefs ,onMounted} from 'vue';
+import { defineComponent,ref,reactive,toRefs,watch,computed,onMounted} from 'vue';
 import * as echarts from 'echarts';
 
 export default defineComponent({
   name: '',
-    props: {
+  props: {
     xData: {
       type: Array,
       default: ()=>{
@@ -35,7 +35,16 @@ export default defineComponent({
     watch([xData],(newValue,aldValue)=>{
        console.log('新值：'+newValue,'原值：'+aldValue)
        initMap()
-     })
+     }
+)
+     //如果想监听多个值,在多写几个watch
+    //  watch(()=> state.radioIndex,(newVal,oldVal)=>{
+    //     console.log(newVal,oldVal,'测试')
+    //  },,{immediate: true, deep: true})
+
+    const nextAge = computed(() => {
+      return  1
+    })
     onMounted(()=>{
       initMap()
     })
@@ -46,7 +55,8 @@ export default defineComponent({
 
       const  initMap=() =>{
       if (mapChart != null && mapChart != "" && mapChart != undefined) {
-        mapChart.dispose(); //销毁
+        // mapChart.dispose(); //销毁
+        mapChart.clear(); //销毁
       }
       let chartDom = echart.value
       mapChart = echarts.init(chartDom);
@@ -96,6 +106,7 @@ export default defineComponent({
       mapChart,
       echart,
       mapBox,
+      nextAge,
       initMap
     }
   }
