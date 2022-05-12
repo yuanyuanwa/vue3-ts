@@ -2,6 +2,7 @@
   <div class="p-20">
     <div>
       <el-button @click="test">123</el-button>
+      <el-button text>123</el-button>
     </div>
     <div
       style="display: grid;grid-template-columns: repeat(2, 50%);grid-row-gap: 10px;grid-column-gap: 10px;"

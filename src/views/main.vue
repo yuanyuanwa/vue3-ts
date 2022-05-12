@@ -42,10 +42,10 @@
           <template #reference>hi~端午</template>
           <div style="border:2px dashed #eda7a7">
             <div style="text-align:center;">
-              <el-button type="text">个人中心</el-button>
+              <el-link type="primary" :underline="false">个人中心</el-link>
             </div>
             <div style="text-align:center;">
-              <el-button type="text" @click="logOut">退出登录</el-button>
+              <el-link  @click="logOut" type="primary" :underline="false">退出登录</el-link>
             </div>
           </div>
         </el-popover>

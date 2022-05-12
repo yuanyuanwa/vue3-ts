@@ -5,7 +5,7 @@
   </div>
 </template>
 <script lang="ts">
-import * as echarts from 'echarts';
+// import * as echarts from 'echarts';
 // export default {
 //   props: {
 //     xData: {
