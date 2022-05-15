@@ -51,7 +51,9 @@
         </el-popover>
       </div>
     </div>
-    <router-view></router-view>
+    <div style="overflow:scroll;height:92vh;">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
