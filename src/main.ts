@@ -5,6 +5,7 @@ import store from './store'
 
 import '@/style/element-variables.scss'
 import ElementPlus from 'element-plus'
+//需要去掉引入index.css，在覆盖scss变量的文件中引入主题样式
 // import 'element-plus/dist/index.css'
 
 
