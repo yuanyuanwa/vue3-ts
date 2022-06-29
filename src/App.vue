@@ -16,4 +16,12 @@
   padding: 0px;
   margin: 0px;
 }
+ ::-webkit-scrollbar {
+		width: 5px;
+		height: 5px;
+	}
+ ::-webkit-scrollbar-thumb {
+		background-color: skyblue;
+		border-radius: 3px;
+	}
 </style>
