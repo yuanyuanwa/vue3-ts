@@ -61,7 +61,7 @@ router.afterEach((to: any, from: any, next: any) => {
 export const DynamicRoutes = [
   {
     path: "/",
-    component: () => import('@/views/main.vue'),
+    component: () => import('@/layout/index.vue'),
     name: "container",
     redirect: 'compDemo',
     meta: {

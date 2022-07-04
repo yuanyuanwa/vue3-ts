@@ -57,7 +57,8 @@ export default defineComponent({
     }
 
     const handelValue=()=>{
-      console.log(editorRef.value.getText())
+      console.log(111,editorRef.value.getText())
+      console.log(123,editorRef.value.getHtml())
     }
 
 
