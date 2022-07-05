@@ -62,7 +62,7 @@ export const DynamicRoutes = [
   {
     path: "/",
     component: () => import('@/layout/index.vue'),
-    name: "container",
+    name: "dashboard",
     redirect: 'compDemo',
     meta: {
       // requiresAuth: true,
@@ -78,15 +78,15 @@ export const DynamicRoutes = [
           icon: "el-icon-s-home",
         },
         children: [
-          {
-            path: "test",
-            component: () => import('@/views/pages/compDemo/test/index.vue'),
-            name: "Test",
-            meta: {
-              name: "组件",
-              icon: "el-icon-s-home",
-            },
-          },
+          // {
+          //   path: "test",
+          //   component: () => import('@/views/pages/compDemo/test/index.vue'),
+          //   name: "Test",
+          //   meta: {
+          //     name: "组件一",
+          //     icon: "el-icon-s-home",
+          //   },
+          // },
         ]
       },
       {

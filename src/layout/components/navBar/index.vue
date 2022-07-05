@@ -37,16 +37,21 @@
       </el-popover>
     </div>
   </div>
+  <div class="p-20">
+    <Breadcrumb />
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { useRouter } from "vue-router";
-
+import Breadcrumb from './bread.vue';
 
 export default defineComponent({
   name: '',
-  components: {},
+  components: {
+    Breadcrumb
+  },
   setup() {
     const router = useRouter();
     const activeIndex = ref('CompDemo')
