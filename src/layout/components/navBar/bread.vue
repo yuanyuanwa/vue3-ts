@@ -36,6 +36,7 @@ const isDashboard = (route: any) => {
   return name.trim().toLocaleLowerCase() === 'Dashboard'.toLocaleLowerCase()
 }
 const getBreadcrumb = () => {
+  console.log('getBreadcrumb')
   let matched: any = route.matched.filter(item => item.meta && item.meta.name)
   const first = matched[0]
   if (!isDashboard(first)) {
@@ -73,6 +74,7 @@ const handleLink=(item:any)=>{
   }
   router.push(pathCompile(path))
 }
+
 </script>
 
 
@@ -80,17 +82,17 @@ const handleLink=(item:any)=>{
 /* breadcrumb transition */
 .breadcrumb-enter-active,
 .breadcrumb-leave-active {
-  transition: all 0.5s;
+  transition: all .5s;
 }
 
-.breadcrumb-enter,
+.breadcrumb-enter-from,
 .breadcrumb-leave-active {
   opacity: 0;
-  transform: translateX(100px);
+  transform: translateX(30px);
 }
 
 .breadcrumb-move {
-  transition: all 0.5s;
+  transition: all .5s;
 }
 
 .breadcrumb-leave-active {

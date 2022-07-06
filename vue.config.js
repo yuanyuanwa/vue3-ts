@@ -5,14 +5,14 @@ module.exports = defineConfig({
 	devServer: {
     port: 8887,
     proxy: {
-      '/test': {
-        target: 'https://service-36x18f42-1253747424.gz.apigw.tencentcs.com/',
-        pathRewrite: {
-          '^/test': ''
-        },
-				logLevel:'debug',
-        changeOrigin: true
-      }
+      // '/test': {
+      //   target: 'https://service-36x18f42-1253747424.gz.apigw.tencentcs.com/',
+      //   pathRewrite: {
+      //     '^/test': ''
+      //   },
+			// 	logLevel:'debug',
+      //   changeOrigin: true
+      // }
     }
   }
 })

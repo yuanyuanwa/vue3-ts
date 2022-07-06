@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHistory, RouteRecordRaw,createWebHashHistory} from 'vue-router'
 import store from "@/store/index";
 
 const routes: Array<RouteRecordRaw> = [
@@ -26,6 +26,7 @@ const router = createRouter({
 
 
 router.beforeEach((to: any, from: any, next: any) => {
+  console.log(99999)
   //未登陆
   if (!window.localStorage.getItem("token") && to.path !== "/login") {
     next({ path: "/login" });
@@ -78,15 +79,15 @@ export const DynamicRoutes = [
           icon: "el-icon-s-home",
         },
         children: [
-          // {
-          //   path: "test",
-          //   component: () => import('@/views/pages/compDemo/test/index.vue'),
-          //   name: "Test",
-          //   meta: {
-          //     name: "组件一",
-          //     icon: "el-icon-s-home",
-          //   },
-          // },
+          {
+            path: "test",
+            component: () => import('@/views/pages/compDemo/test/index.vue'),
+            name: "Test",
+            meta: {
+              name: "组件一",
+              icon: "el-icon-s-home",
+            },
+          },
         ]
       },
       {
