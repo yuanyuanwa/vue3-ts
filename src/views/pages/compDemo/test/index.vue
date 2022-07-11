@@ -1,3 +1,4 @@
 <template>
-<div style="height:1000px;"><div>123</div><div>456</div></div>
+<!-- <div><div>123</div><div>456</div></div> -->
+<router-view></router-view>
 </template>

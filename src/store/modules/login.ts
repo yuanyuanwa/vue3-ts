@@ -69,7 +69,7 @@ function filterAsyncRouter(asyncRouterMap: Array<any>) {
 
 export default {
   namespaced: true,//开启命名空间
-  //模块化后的用法:store.state.login.permissionList
+  //模块化后的用法:store.state.login.sidebarMenu
   state: {
     permissionList: null /** 所有路由 */,
     sidebarMenu: [] /** 导航菜单 */,

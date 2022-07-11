@@ -16,6 +16,7 @@ import { ArrowRight } from '@element-plus/icons-vue'
 import { ref, watch, reactive } from 'vue'
 import { useRoute,useRouter} from "vue-router"
 import pathToRegexp from 'path-to-regexp'
+import store from '@/store/index'
 
 // beforeCreate -> use setup()
 // created -> use setup()
@@ -37,6 +38,8 @@ const isDashboard = (route: any) => {
 }
 const getBreadcrumb = () => {
   console.log('getBreadcrumb')
+  console.log(7812349,route.matched)
+  store.commit("login/SET_MENU",route.matched[1].children)
   let matched: any = route.matched.filter(item => item.meta && item.meta.name)
   const first = matched[0]
   if (!isDashboard(first)) {
