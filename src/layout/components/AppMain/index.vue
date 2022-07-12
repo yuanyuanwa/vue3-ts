@@ -4,13 +4,18 @@
       <router-view :key="key" style="height: 100%" />
     </transition>
   </section>
+    <!-- <router-view v-slot="{ Component }" style="height: 100%">
+      <transition name="fade-transform" mode="out-in">
+          <component :is="Component" />
+      </transition>
+    </router-view> -->
 </template>
 
 <script lang="ts" setup>
 import { ref, computed } from "vue";
-import { useRoute} from "vue-router"
+import { useRoute } from "vue-router";
 
-const route = useRoute()
+const route = useRoute();
 const key = computed(() => {
   return route.path;
 });
@@ -18,7 +23,6 @@ const key = computed(() => {
 
 <style lang='scss' scoped>
 .app-main {
-  height: calc(100vh - 50px);
   width: 100%;
   position: relative;
 }
@@ -26,22 +30,21 @@ const key = computed(() => {
 .fixed-header + .app-main {
   padding-top: 50px;
 }
- 
+
 /* fade-transform */
 .fade-transform-leave-active,
 .fade-transform-enter-active {
-  transition: all .5s;
+  transition: all 0.5s;
 }
- 
+
 .fade-transform-enter-from {
   opacity: 0;
   transform: translateX(-30px);
 }
- 
+
 .fade-transform-leave-to {
   opacity: 0;
   transform: translateX(30px);
 }
- 
 </style>
 

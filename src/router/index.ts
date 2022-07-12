@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, RouteRecordRaw,createWebHashHistory} from 'vue-router'
+import { createRouter, createWebHistory, RouteRecordRaw, createWebHashHistory } from 'vue-router'
 import store from "@/store/index";
 
 const routes: Array<RouteRecordRaw> = [
@@ -84,8 +84,37 @@ export const DynamicRoutes = [
             component: () => import('@/views/pages/compDemo/test/index.vue'),
             name: "Test",
             meta: {
-              name: "组件一",
-              icon: "el-icon-s-home",
+              name: "封装echarts",
+              icon: "Aim",
+            },
+            children: [
+              {
+                path: "testchild1",
+                component: () => import('@/views/pages/compDemo/test/child/child1.vue'),
+                name: "Testchild1",
+                meta: {
+                  name: "组件一子组件1",
+                  icon: "AlarmClock",
+                },
+              },
+              {
+                path: "testchild2",
+                component: () => import('@/views/pages/compDemo/test/child/child2.vue'),
+                name: "Testchild2",
+                meta: {
+                  name: "组件一子组件2",
+                  icon: "AlarmClock",
+                },
+              },
+            ]
+          },
+          {
+            path: "test2",
+            component: () => import('@/views/pages/compDemo/test2/index.vue'),
+            name: "Test2",
+            meta: {
+              name: "组件二",
+              icon: "AlarmClock",
             },
           },
         ]
