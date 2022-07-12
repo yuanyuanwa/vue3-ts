@@ -7,7 +7,7 @@
 
  export function recursionRouter(userRouter:any[] = [], allRouter:any = []) {
     // console.log(userRouter,allRouter,1)
-    var realRoutes:any[] = []
+    const realRoutes:any[] = []
     allRouter.forEach((v:any, i:number) => {
         userRouter.forEach((item:any, index:number) => {
             //根据type进行对比

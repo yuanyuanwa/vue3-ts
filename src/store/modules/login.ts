@@ -46,7 +46,7 @@ function clone(data: any): any {
   }
   return o;
 }
-export const loadView = (view: String) => { // 路由懒加载
+export const loadView = (view: string) => { // 路由懒加载
   return () => import(`@/views/${view}`)
 };
 //递归处理后端数据
@@ -56,7 +56,7 @@ function filterAsyncRouter(asyncRouterMap: Array<any>) {
       route.component = view;
     } else {
       route.component = loadView(route.component)
-    };
+    }
     if (route.children != null && route.children && route.children.length) {
       route.children = filterAsyncRouter(route.children)
     } else {
@@ -65,7 +65,7 @@ function filterAsyncRouter(asyncRouterMap: Array<any>) {
     }
     return true
   });
-};
+}
 
 export default {
   namespaced: true,//开启命名空间
@@ -106,9 +106,9 @@ export default {
   actions: {
     async [FETCH_PERMISSION]({ commit }: any) {
       //处理需要动态的路由
-      let routes: Array<any> = filterAsyncRouter(permissionList);
+      const routes: Array<any> = filterAsyncRouter(permissionList);
       //不需要动态的路由（深拷贝）
-      let MainContainer = clone(DynamicRoutes).find(
+      const MainContainer = clone(DynamicRoutes).find(
         (v: any) => v.path === "/"
       );
       let children: Array<any> = [];
@@ -129,7 +129,7 @@ export default {
           */
       setDefaultRoute([MainContainer]);
       /*  初始路由 */
-      let initialRoutes = router.options.routes;
+      const initialRoutes = router.options.routes;
       router.addRoute(MainContainer);
       /* 完整的路由表 */
       // @ts-ignore //忽略提示

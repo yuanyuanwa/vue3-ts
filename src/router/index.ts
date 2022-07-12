@@ -50,7 +50,7 @@ router.afterEach((to: any, from: any, next: any) => {
       document.title = to.meta.name;
     }
   } catch (err) { }
-  let routerList = to.matched;
+  const routerList = to.matched;
   //顶部面包屑
   store.commit("login/setCrumbList", routerList);
   //目前左边导航选中的active

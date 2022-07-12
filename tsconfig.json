@@ -1,7 +1,21 @@
 {
   "compilerOptions": {
+    //target用来指定ts被编译为的es版本，默认转换为es3版本的js，esnext表示最新版本的es
     "target": "esnext",
+    //module 指定要使用的模块化的规范
     "module": "esnext",
+    //outDir 用来指定编译后文件所在的目录 outDir：'./dist'
+    //outFile 将所有ts代码合并为一个js文件， ：后面跟路径
+    //allowJs 是否对js文件进行编译 true false，默认是false
+    //checkJs 是否检查js代码是否符合语法规范，默认是false
+    //removeComments 是否移除注释，默认false
+    //noEmit 不生成编译后的文件，默认false，
+    //noEmitOnError 当有错误时不生成编译后的文件，默认false
+    //alwaysStrict 用来设置编译后的文件是否使用严格模式，默认false，有模块代码就会自动进入严格模式
+    //noEmplictAny 不允许出现隐式any，true
+    //noEmplictThis 不允许不明确类型的this，true
+    //strictNullChecks 严格检查空值 true
+    //strict 建议设置为true，严格检查的总开关，设置为true，那么alwaysStrict、noEmplictAny、noEmplictThis、strictNullChecks都会开启，就可以不具体写这四个了
     "strict": true,
     "jsx": "preserve",
     "moduleResolution": "node",
@@ -20,6 +34,7 @@
         "src/*"
       ]
     },
+    //lib用来指定项目中要使用的库，一般情况下不需要改，写了用到这些库会有提示
     "lib": [
       "esnext",
       "dom",
@@ -27,6 +42,7 @@
       "scripthost"
     ]
   },
+  // 用来指定哪些ts文件目录需要被编译，**表示任意目录，*表示任意文件
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
@@ -34,8 +50,10 @@
     "tests/**/*.ts",
     "tests/**/*.tsx"
   ],
+  //不需要编译的ts文件目录，有默认值的，比如node_modules，可以不用设置
   "exclude": [
     "node_modules"
   ],
-  
+  //extends继承
+  //files需要编译的文件，文件比较少的时候用得上
 }
