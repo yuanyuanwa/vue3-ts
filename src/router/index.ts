@@ -26,7 +26,6 @@ const router = createRouter({
 
 
 router.beforeEach((to: any, from: any, next: any) => {
-  console.log(99999)
   //未登陆
   if (!window.localStorage.getItem("token") && to.path !== "/login") {
     next({ path: "/login" });
@@ -63,13 +62,22 @@ export const DynamicRoutes = [
   {
     path: "/",
     component: () => import('@/layout/index.vue'),
-    name: "dashboard",
-    redirect: 'compDemo',
+    name: "/",
+    redirect: 'dashboard',
     meta: {
       // requiresAuth: true,
-      name: "首页",
+      name: "喵喵喵",
     },
     children: [
+      {
+        path: "dashboard",
+        component: () => import('@/views/pages/dashboard/index.vue'),
+        name: "Dashboard",
+        meta: {
+          name: "首页",
+          icon: "",
+        },
+      },
       {
         path: "compDemo",
         component: () => import('@/views/pages/compDemo/index.vue'),
@@ -114,7 +122,7 @@ export const DynamicRoutes = [
             name: "Test2",
             meta: {
               name: "element",
-              icon: "AlarmClock",
+              icon: "Chicken",
             },
           },
           {
@@ -123,7 +131,7 @@ export const DynamicRoutes = [
             name: "PlugIns",
             meta: {
               name: "插件",
-              icon: "AlarmClock",
+              icon: "Cherry",
             },
             children: [
               {
@@ -154,6 +162,15 @@ export const DynamicRoutes = [
         name: "Photos",
         meta: {
           name: "日常",
+          icon: "el-icon-s-home",
+        },
+      },
+      {
+        path: "todolist",
+        component: () => import('@/views/pages/todolist/index.vue'),
+        name: "Todolist",
+        meta: {
+          name: "项目任务清单",
           icon: "el-icon-s-home",
         },
       },

@@ -1,29 +1,43 @@
 <template>
-  <div style="display: flex; align-items: center; justify-content: center">
-    <div style="border: 1px solid #ccc; width: 500px">
-      <Toolbar
-        style="border-bottom: 1px solid #ccc"
-        :editor="editorRef"
-        :defaultConfig="toolbarConfig"
-        :mode="mode"
-      />
-
-      <Editor
-        style="height: 200px; overflow-y: hidden"
-        v-model="valueHtml"
-        :defaultConfig="editorConfig"
-        :mode="mode"
-        @onCreated="handleCreated"
-      />
+  <div class="p-10">
+    <div class="flex-align-center pb-20">
+      <div class="react" />
+      <span class="font-bold">使用wangeditor</span>
     </div>
-  </div>
-  <div class="flex-center pt-20">
-    <el-button @click="handelValue">123</el-button>
+    <span
+      >官网：
+      <el-link
+        href="https://www.wangeditor.com/"
+        :underline="false"
+        target="_blank"
+        >https://www.wangeditor.com/</el-link
+      ></span
+    >
+    <div style="display: flex; align-items: center; justify-content: center">
+      <div style="border: 1px solid #ccc; width: 500px">
+        <Toolbar
+          style="border-bottom: 1px solid #ccc"
+          :editor="editorRef"
+          :defaultConfig="toolbarConfig"
+          :mode="mode"
+        />
+
+        <Editor
+          style="height: 200px; overflow-y: hidden"
+          v-model="valueHtml"
+          :defaultConfig="editorConfig"
+          :mode="mode"
+          @onCreated="handleCreated"
+        />
+      </div>
+    </div>
+    <div class="flex-center pt-20">
+      <el-button @click="handelValue">获取文本框内容</el-button>
+    </div>
   </div>
 </template>
 <script lang="ts">
 import "@wangeditor/editor/dist/css/style.css"; // 引入 css
-
 import {
   defineComponent,
   onBeforeUnmount,
@@ -32,6 +46,7 @@ import {
   onMounted,
 } from "vue";
 import { Editor, Toolbar } from "@wangeditor/editor-for-vue";
+import { ElMessage } from 'element-plus'
 export default defineComponent({
   components: { Editor, Toolbar },
   setup() {
@@ -63,6 +78,10 @@ export default defineComponent({
     };
 
     const handelValue = () => {
+      ElMessage({
+        message: "F12查看控制台信息",
+        type: "success",
+      });
       console.log(111, editorRef.value.getText());
       console.log(123, editorRef.value.getHtml());
     };
