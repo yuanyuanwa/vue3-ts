@@ -93,8 +93,8 @@ export const DynamicRoutes = [
                 component: () => import('@/views/pages/compDemo/test/child/child1.vue'),
                 name: "Testchild1",
                 meta: {
-                  name: "组件一子组件1",
-                  icon: "AlarmClock",
+                  name: "折线图",
+                  icon: "Watermelon",
                 },
               },
               {
@@ -102,7 +102,7 @@ export const DynamicRoutes = [
                 component: () => import('@/views/pages/compDemo/test/child/child2.vue'),
                 name: "Testchild2",
                 meta: {
-                  name: "组件一子组件2",
+                  name: "柱状图",
                   icon: "AlarmClock",
                 },
               },
@@ -113,9 +113,29 @@ export const DynamicRoutes = [
             component: () => import('@/views/pages/compDemo/test2/index.vue'),
             name: "Test2",
             meta: {
-              name: "组件二",
+              name: "element",
               icon: "AlarmClock",
             },
+          },
+          {
+            path: "plugins",
+            component: () => import('@/views/pages/compDemo/plugins/index.vue'),
+            name: "PlugIns",
+            meta: {
+              name: "插件",
+              icon: "AlarmClock",
+            },
+            children: [
+              {
+                path: "richText",
+                component: () => import('@/views/pages/compDemo/plugins/richText.vue'),
+                name: "RichText",
+                meta: {
+                  name: "富文本",
+                  icon: "Tickets",
+                },
+              }
+            ]
           },
         ]
       },

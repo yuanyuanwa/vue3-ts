@@ -37,8 +37,8 @@ const isDashboard = (route: any) => {
   return name.trim().toLocaleLowerCase() === 'Dashboard'.toLocaleLowerCase()
 }
 const getBreadcrumb = () => {
-  console.log('getBreadcrumb')
-  console.log(7812349,route.matched)
+  // console.log('getBreadcrumb')
+  // console.log(7812349,route.matched)
   store.commit("login/SET_MENU",route.matched[1].children)
   let matched: any = route.matched.filter(item => item.meta && item.meta.name)
   const first = matched[0]
