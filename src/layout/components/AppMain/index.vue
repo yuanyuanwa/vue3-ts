@@ -1,14 +1,14 @@
 <template>
-  <section class="app-main">
+  <!-- <section class="app-main">
     <transition name="fade-transform" mode="out-in">
       <router-view :key="key" style="height: 100%" />
     </transition>
-  </section>
-    <!-- <router-view v-slot="{ Component }" style="height: 100%">
+  </section> -->
+    <router-view v-slot="{ Component }" style="height: 100%">
       <transition name="fade-transform" mode="out-in">
           <component :is="Component" />
       </transition>
-    </router-view> -->
+    </router-view>
 </template>
 
 <script lang="ts" setup>

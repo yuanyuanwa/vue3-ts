@@ -26,7 +26,6 @@ const router = createRouter({
 
 
 router.beforeEach((to: any, from: any, next: any) => {
-  console.log(99999)
   //未登陆
   if (!window.localStorage.getItem("token") && to.path !== "/login") {
     next({ path: "/login" });
@@ -63,13 +62,22 @@ export const DynamicRoutes = [
   {
     path: "/",
     component: () => import('@/layout/index.vue'),
-    name: "dashboard",
-    redirect: 'compDemo',
+    name: "/",
+    redirect: 'dashboard',
     meta: {
       // requiresAuth: true,
-      name: "首页",
+      name: "喵喵喵",
     },
     children: [
+      {
+        path: "dashboard",
+        component: () => import('@/views/pages/dashboard/index.vue'),
+        name: "Dashboard",
+        meta: {
+          name: "首页",
+          icon: "",
+        },
+      },
       {
         path: "compDemo",
         component: () => import('@/views/pages/compDemo/index.vue'),
@@ -93,8 +101,8 @@ export const DynamicRoutes = [
                 component: () => import('@/views/pages/compDemo/test/child/child1.vue'),
                 name: "Testchild1",
                 meta: {
-                  name: "组件一子组件1",
-                  icon: "AlarmClock",
+                  name: "折线图",
+                  icon: "Watermelon",
                 },
               },
               {
@@ -102,7 +110,7 @@ export const DynamicRoutes = [
                 component: () => import('@/views/pages/compDemo/test/child/child2.vue'),
                 name: "Testchild2",
                 meta: {
-                  name: "组件一子组件2",
+                  name: "柱状图",
                   icon: "AlarmClock",
                 },
               },
@@ -113,9 +121,29 @@ export const DynamicRoutes = [
             component: () => import('@/views/pages/compDemo/test2/index.vue'),
             name: "Test2",
             meta: {
-              name: "组件二",
-              icon: "AlarmClock",
+              name: "element",
+              icon: "Chicken",
             },
+          },
+          {
+            path: "plugins",
+            component: () => import('@/views/pages/compDemo/plugins/index.vue'),
+            name: "PlugIns",
+            meta: {
+              name: "插件",
+              icon: "Cherry",
+            },
+            children: [
+              {
+                path: "richText",
+                component: () => import('@/views/pages/compDemo/plugins/richText.vue'),
+                name: "RichText",
+                meta: {
+                  name: "富文本",
+                  icon: "Tickets",
+                },
+              }
+            ]
           },
         ]
       },
@@ -134,6 +162,15 @@ export const DynamicRoutes = [
         name: "Photos",
         meta: {
           name: "日常",
+          icon: "el-icon-s-home",
+        },
+      },
+      {
+        path: "todolist",
+        component: () => import('@/views/pages/todolist/index.vue'),
+        name: "Todolist",
+        meta: {
+          name: "项目任务清单",
           icon: "el-icon-s-home",
         },
       },

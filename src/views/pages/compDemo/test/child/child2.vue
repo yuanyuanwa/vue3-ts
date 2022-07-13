@@ -1,3 +1,3 @@
 <template>
-<div ><div>child2</div></div>
+<div ><div>柱状图</div></div>
 </template>
