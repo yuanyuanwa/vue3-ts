@@ -80,7 +80,7 @@ export const DynamicRoutes = [
       },
       {
         path: "compDemo",
-        component: () => import('@/views/pages/compDemo/index.vue'),
+        component: () => import('@/components/view/view.vue'),
         name: "CompDemo",
         meta: {
           name: "组件",
@@ -89,7 +89,7 @@ export const DynamicRoutes = [
         children: [
           {
             path: "test",
-            component: () => import('@/views/pages/compDemo/test/index.vue'),
+            component: () => import('@/components/view/view.vue'),
             name: "Test",
             meta: {
               name: "封装echarts",
@@ -127,7 +127,7 @@ export const DynamicRoutes = [
           },
           {
             path: "plugins",
-            component: () => import('@/views/pages/compDemo/plugins/index.vue'),
+            component: () => import('@/components/view/view.vue'),
             name: "PlugIns",
             meta: {
               name: "插件",
@@ -144,6 +144,15 @@ export const DynamicRoutes = [
                 },
               }
             ]
+          },
+          {
+            path: "animation",
+            component: () => import('@/views/pages/compDemo/animation/index.vue'),
+            name: "Animation",
+            meta: {
+              name: "动效",
+              icon: "Chicken",
+            },
           },
         ]
       },
