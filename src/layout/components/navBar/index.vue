@@ -68,7 +68,7 @@ export default defineComponent({
       router.push({ name: 'login' })
     }
     onMounted(()=>{
-      console.log(898989,route)
+      
     })
     //返回一个对象
     return {

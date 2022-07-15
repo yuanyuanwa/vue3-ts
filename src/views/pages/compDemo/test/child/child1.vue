@@ -28,10 +28,9 @@
       <span class="font-bold">堆叠折线图</span>
     </div>
     <component
-        :is="typeComponentMap.stackedLineChart"
-        :xData="[10, 20, 39, 49, 99]"
-      />
-    
+      :is="typeComponentMap.stackedLineChart"
+      :xData="[10, 20, 39, 49, 99]"
+    />
   </div>
 </template>
 <script lang="ts" setup>
@@ -45,6 +44,8 @@ import stackedLineChart from "@/components/echarts/stackedLineChart.vue";
 // });
 const typeComponentMap = {
   lineChart: lineChart,
-  stackedLineChart:stackedLineChart,
+  stackedLineChart: stackedLineChart,
 };
+
+
 </script>
