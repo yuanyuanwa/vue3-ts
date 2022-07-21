@@ -174,15 +174,15 @@ export const DynamicRoutes = [
           icon: "el-icon-s-home",
         },
       },
-      {
-        path: "todolist",
-        component: () => import('@/views/pages/todolist/index.vue'),
-        name: "Todolist",
-        meta: {
-          name: "项目任务清单",
-          icon: "el-icon-s-home",
-        },
-      },
+      // {
+      //   path: "todolist",
+      //   component: () => import('@/views/pages/todolist/index.vue'),
+      //   name: "Todolist",
+      //   meta: {
+      //     name: "项目任务清单",
+      //     icon: "el-icon-s-home",
+      //   },
+      // },
     ]
 
   }

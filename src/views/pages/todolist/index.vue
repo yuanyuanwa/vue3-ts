@@ -32,11 +32,6 @@
         </div>
         <div>
           <el-checkbox v-model="checked2" label="Option 1" size="large"
-            >顶部一级菜单根据router动态变化</el-checkbox
-          >
-        </div>
-        <div>
-          <el-checkbox v-model="checked2" label="Option 1" size="large"
             >页面平滑滚动到自定位置</el-checkbox
           >
         </div>
