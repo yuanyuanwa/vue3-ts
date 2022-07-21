@@ -74,7 +74,6 @@ export default defineComponent({
       () => store.state.login.sidebarMenu, // 注意这里
       (val, old) => {
         sidebarMenu.value = val;
-        console.log(789, sidebarMenu);
       },
       {
         deep: true, // 深度监听

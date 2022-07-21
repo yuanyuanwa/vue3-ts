@@ -73,6 +73,7 @@ export default {
   state: {
     permissionList: null /** 所有路由 */,
     sidebarMenu: [] /** 导航菜单 */,
+    navBar:[],//顶部菜单
     currentMenu: "" /** 当前active导航菜单 */,
     /* 导航菜单是否折叠 */
     isSidebarNavCollapse: false,
@@ -84,6 +85,9 @@ export default {
     //左边导航栏列表
     SET_MENU(state: any, menu: Array<any>) {
       state.sidebarMenu = menu
+    },
+    SET_NAVBAR(state: any, bar: Array<any>) {
+      state.navBar = bar
     },
     /* 完整的路由表 */
     SET_PERMISSION(state: any, routes: Array<any>) {
