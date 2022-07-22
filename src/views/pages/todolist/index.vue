@@ -42,6 +42,11 @@
         </div>
         <div>
           <el-checkbox v-model="checked2" label="Option 1" size="large"
+            >axios二次封装</el-checkbox
+          >
+        </div>
+        <div>
+          <el-checkbox v-model="checked2" label="Option 1" size="large"
             >照片墙瀑布流</el-checkbox
           >
         </div>
@@ -58,6 +63,11 @@
         <div>
           <el-checkbox v-model="checked2" label="Option 1" size="large"
             >vue3的vuex模块化后用法总结</el-checkbox
+          >
+        </div>
+        <div>
+          <el-checkbox v-model="checked2" label="Option 1" size="large"
+            >canvas绘制星空</el-checkbox
           >
         </div>
       </div>

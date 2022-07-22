@@ -46,7 +46,7 @@
       </el-popover>
     </div>
   </div>
-  <div class="p-20">
+  <div class="p-20" style="box-shadow: rgb(0 0 0 / 10%) 0px -2px 10px 0px;">
     <Breadcrumb />
   </div>
 </template>

@@ -15,44 +15,6 @@
       </div>
     </div>
 
-    <div>
-      <el-table :data="tableData" style="width: 100%">
-        <template #empty>
-          <el-empty description="暂无数据" />
-        </template>
-
-        <el-table-column prop="date" label="Date" width="180" />
-        <el-table-column prop="name" label="Name" width="180" />
-        <el-table-column prop="address" label="Address" />
-        <el-table-column prop="address" label="Address">
-          <template #default="scope">
-            <div style="display: flex; align-items: center">
-              <el-icon>
-                <timer />
-              </el-icon>
-            </div>
-          </template>
-        </el-table-column>
-      </el-table>
-      <el-table :data="tableData1" style="width: 100%" class="pt-20">
-        <template #empty>
-          <el-empty description="暂无数据" />
-        </template>
-
-        <el-table-column prop="date" label="Date" width="180" />
-        <el-table-column prop="name" label="Name" width="180" />
-        <el-table-column prop="address" label="Address" />
-        <el-table-column prop="address" label="Address">
-          <template #default="scope">
-            <div style="display: flex; align-items: center">
-              <el-icon>
-                <timer />
-              </el-icon>
-            </div>
-          </template>
-        </el-table-column>
-      </el-table>
-    </div>
 
     <el-dialog v-model="dialogTableVisible" title="Shipping address">
       <el-table :data="tableData" max-height="250">
@@ -78,7 +40,7 @@ export default defineComponent({
   name: '',
   props: {},
   components: {
-    lineChart,
+    lineChart,//不用在return返回
     Timer
   },
   setup() {
