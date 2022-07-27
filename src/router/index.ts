@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw, createWebHashHistory } from 'vue-router'
 import store from "@/store/index";
+import i18n from '@/i18n/index'
+
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -170,7 +172,7 @@ export const DynamicRoutes = [
         component: () => import('@/views/pages/photos/index.vue'),
         name: "Photos",
         meta: {
-          name: "日常",
+          name: i18n.global.t('home.name'),
           icon: "el-icon-s-home",
         },
       },

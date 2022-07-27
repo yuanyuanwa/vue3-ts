@@ -2,7 +2,7 @@
   <div class="p-10">
     <div class="flex-align-center pb-20">
       <div class="react" />
-      <span class="font-bold">单折线图</span>
+      <span class="font-bold">单折线图{{$t('home.name')}}</span>
     </div>
     <div
       style="
@@ -49,3 +49,7 @@ const typeComponentMap = {
 
 
 </script>
+
+<style lang="scss" scoped>
+
+</style>

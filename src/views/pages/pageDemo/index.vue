@@ -36,6 +36,7 @@ import lineChart from '@/components/echarts/lineChart.vue'
 import { defineComponent, ref, watch, toRefs, onMounted } from 'vue';
 import { Timer } from '@element-plus/icons-vue'
 import { ceshi } from '@/api/index'
+import { ElMessage } from 'element-plus'
 export default defineComponent({
   name: '',
   props: {},
@@ -103,8 +104,11 @@ export default defineComponent({
     const test = () => {
       console.log(123123123)
       ceshi().then(res => {
-        console.log(123123, res)
-
+        console.log(123123, res.data)
+        ElMessage({
+        message: "测试接口:"+res.data.content,
+        type: "success",
+      });
       })
     }
     const handleSizeChange = (val: number) => {

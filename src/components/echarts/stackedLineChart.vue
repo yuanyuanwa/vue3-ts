@@ -1,4 +1,4 @@
-// 堆叠折线图 ---vue2来的要改写法
+// 堆叠折线图 
 <template>
   <div ref="mapBox" style="width: 100%; height: 100%">
     <div ref="echart" style="height: 300px"></div>
