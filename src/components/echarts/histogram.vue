@@ -82,76 +82,22 @@ export default defineComponent({
           axisPointer: {
             type: "shadow",
           },
-          textStyle: {
-            align: "left",
-          },
-          //修改提示框的顺序
-          formatter: function (params:any) {
-            let res = "";
-            for (let i = params.length - 1; i > -1; i--) {
-              var data:string = "" + params[i].name + "<br/>";
-              res +=
-                '<div style="display:flex;justify-content: space-between;">' +
-                "<div>" +
-                params[i].marker +
-                '<span style="margin-right:20px;">' +
-                params[i].seriesName +
-                "</span>" +
-                "</div>" +
-                '<span style="font-weight:bold;">' +
-                params[i].value +
-                "</span>" +
-                "</div>";
-            }
-            return data + res;
-          },
         },
         xAxis: {
-          data: [
-            "北京",
-            "广东",
-            "上海",
-            "天津",
-            "广西",
-            "重庆",
-            "四川",
-            "安徽",
-          ],
-          axisLine: { onZero: true },
-          splitLine: { show: false },
-          splitArea: { show: false },
+          type: "category",
+          data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
         },
-        yAxis: {},
-        grid: {
-          bottom: 100,
+        yAxis: {
+          type: "value",
         },
         series: [
           {
-            name: "DNN",
+            data: xData,
             type: "bar",
-            stack: "one",
-            data: [23,34,6,7,8],
-            itemStyle: {
-              normal: { color: "#5BD0F1" },
+            showBackground: true,
+            backgroundStyle: {
+              color: "rgba(180, 180, 180, 0.2)",
             },
-          },
-          {
-            name: "人联卡",
-            type: "bar",
-            stack: "one",
-            data: [432,34,434,76],
-          },
-          {
-            name: "MEC",
-            type: "bar",
-            stack: "one",
-            data: [32,43,65,87],
-          },
-          {
-            name: "物联卡",
-            type: "bar",
-            stack: "one",
-            data: [100,233,435,65],
           },
         ],
       });

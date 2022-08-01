@@ -36,12 +36,21 @@ export default defineComponent({
       type: String,
       default: "y轴名称",
     },
+    grid: {
+      type: Object,
+      default: {
+        top: "15%",
+        left: "16%",
+        right: "2%",
+        bottom: "20%",
+      },
+    },
   },
   components: {},
   setup(props: any) {
-    const { xData, xName, yName } = toRefs(props);
+    const { xData, xName, yName,grid } = toRefs(props);
     watch([xData], (newValue, aldValue) => {
-      // 
+      //
       initMap();
     });
     //如果想监听多个值,在多写几个watch
@@ -68,12 +77,7 @@ export default defineComponent({
       let chartDom = echart.value;
       mapChart = echarts.init(chartDom);
       let option = reactive({
-        grid: {
-          top: "15%",
-          left: "16%",
-          right: "2%",
-          bottom: "20%",
-        },
+        grid: grid,
         xAxis: {
           type: "category",
           data: xName,

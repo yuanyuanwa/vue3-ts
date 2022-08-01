@@ -1,7 +1,7 @@
 <template>
   <div class="p-20">
     <div>
-      <el-button @click="test">123</el-button>
+      <el-button @click="test">接口测试</el-button>
       <el-button text>123</el-button>
       <el-button color="#626aef" @click="dialogTableVisible = true">弹窗</el-button>
     </div>
