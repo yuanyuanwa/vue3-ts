@@ -3,7 +3,6 @@
 </template>
 
 <script lang="ts" setup>
-
 </script>
 
 <style lang="scss">
@@ -24,7 +23,15 @@
   width: 5px;
   height: 5px;
 }
+::-moz-scrollbar {
+  width: 5px;
+  height: 5px;
+} /* Firefox */
 ::-webkit-scrollbar-thumb {
+  background-color: skyblue;
+  border-radius: 3px;
+}
+::-moz-scrollbar-thumb {
   background-color: skyblue;
   border-radius: 3px;
 }

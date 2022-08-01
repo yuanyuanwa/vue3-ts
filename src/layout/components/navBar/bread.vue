@@ -2,21 +2,24 @@
   <el-breadcrumb :separator-icon="ArrowRight" class="font-14">
     <transition-group name="breadcrumb">
       <el-breadcrumb-item v-for="(item, index) in levelList" :key="item.path">
-        <span v-if="item.redirect === 'noRedirect' || index == levelList.length - 1" class="no-redirect">{{
-            item.meta.name
-        }}</span>
-        <a v-else  @click.prevent="                                                               handleLink(item)">{{ item.meta.name }}</a>
+        <span
+          v-if="item.redirect === 'noRedirect' || index == levelList.length - 1"
+          class="no-redirect"
+          >{{ routeTitle(item.meta.name) }}</span
+        >
+        <a v-else @click.prevent="handleLink(item)">{{ routeTitle(item.meta.name) }}</a>
       </el-breadcrumb-item>
     </transition-group>
   </el-breadcrumb>
 </template>
 
 <script lang="ts" setup>
-import { ArrowRight } from '@element-plus/icons-vue'
-import { ref, watch, reactive } from 'vue'
-import { useRoute,useRouter} from "vue-router"
-import pathToRegexp from 'path-to-regexp'
-import store from '@/store/index'
+import { ArrowRight } from "@element-plus/icons-vue";
+import { ref, watch, reactive } from "vue";
+import { useRoute, useRouter } from "vue-router";
+import pathToRegexp from "path-to-regexp";
+import store from "@/store/index";
+import i18n from "@/i18n/index";
 
 // beforeCreate -> use setup()
 // created -> use setup()
@@ -28,54 +31,65 @@ import store from '@/store/index'
 // destroyed -> onUnmounted
 // errorCaptured -> onErrorCaptured
 
-let levelList: any = ref(null)
+let levelList: any = ref(null);
 const isDashboard = (route: any) => {
-  const name = route && route.name
+  const name = route && route.name;
   if (!name) {
-    return false
+    return false;
   }
-  return name.trim().toLocaleLowerCase() === 'Dashboard'.toLocaleLowerCase()
-}
+  return name.trim().toLocaleLowerCase() === "Dashboard".toLocaleLowerCase();
+};
 const getBreadcrumb = () => {
-  store.commit("login/SET_MENU",route.matched[1].children)
-  let matched: any = route.matched.filter(item => item.meta && item.meta.name)
-  const first = matched[0]
+  store.commit("login/SET_MENU", route.matched[1].children);
+  let matched: any = route.matched.filter(
+    (item) => item.meta && item.meta.name
+  );
+  const first = matched[0];
   if (!isDashboard(first)) {
-    matched = [{ path: '/dashboard', meta: { title: 'Dashboard' } }].concat(matched)
+    matched = [{ path: "/dashboard", meta: { title: "Dashboard" } }].concat(
+      matched
+    );
   }
-  levelList.value = matched.filter(item => item.meta && item.meta.name && item.meta.breadcrumb !== false)
-}
-const route = useRoute()
-const router = useRouter()
+  levelList.value = matched.filter(
+    (item) => item.meta && item.meta.name && item.meta.breadcrumb !== false
+  );
+};
+const route = useRoute();
+const router = useRouter();
 watch(
   () => route, // 注意这里
   (val, old) => {
-    if (route.path.startsWith('/redirect/')) {
-      return
+    if (route.path.startsWith("/redirect/")) {
+      return;
     }
-    getBreadcrumb()
+    getBreadcrumb();
   },
   {
     deep: true, // 深度监听
-    immediate: true // 立即执行
+    immediate: true, // 立即执行
   }
-)
+);
 
-const pathCompile=(path:any)=>{
+const pathCompile = (path: any) => {
   // To solve this problem https://github.com/PanJiaChen/vue-element-admin/issues/561
-  const { params } = route
-  var toPath = pathToRegexp.compile(path)
-  return toPath(params)
-}
-const handleLink=(item:any)=>{
-  const { redirect, path } = item
+  const { params } = route;
+  var toPath = pathToRegexp.compile(path);
+  return toPath(params);
+};
+const handleLink = (item: any) => {
+  const { redirect, path } = item;
   if (redirect) {
-    router.push(redirect)
-    return
+    router.push(redirect);
+    return;
   }
-  router.push(pathCompile(path))
-}
-
+  router.push(pathCompile(path));
+};
+const { t } = i18n.global;
+const routeTitle = (name: string) => {
+  // return name
+  let a = "route." + name;
+  return t(a);
+};
 </script>
 
 
@@ -83,7 +97,7 @@ const handleLink=(item:any)=>{
 /* breadcrumb transition */
 .breadcrumb-enter-active,
 .breadcrumb-leave-active {
-  transition: all .5s;
+  transition: all 0.5s;
 }
 
 .breadcrumb-enter-from,
@@ -93,7 +107,7 @@ const handleLink=(item:any)=>{
 }
 
 .breadcrumb-move {
-  transition: all .5s;
+  transition: all 0.5s;
 }
 
 .breadcrumb-leave-active {

@@ -15,7 +15,7 @@
       active-text-color="#3D708f"
       @select="handleSelect"
     >
-    <el-menu-item :index="item.name" v-for="(item,index) in navBar" :key="index">{{item.meta.name}}</el-menu-item>
+    <el-menu-item :index="item.name" v-for="(item,index) in navBar" :key="index">{{routeTitle(item.meta.name)}}</el-menu-item>
       <!-- <el-menu-item index="Dashboard">首页</el-menu-item>
       <el-menu-item index="CompDemo">组件</el-menu-item>
       <el-menu-item index="PageDemo">文章</el-menu-item>
@@ -38,10 +38,10 @@
       <el-popover placement="bottom-start" :width="150" trigger="hover">
         <template #reference>{{$t('home.name')}}</template>
         <div style="border: 2px dashed #eda7a7">
-          <div style="text-align: center">
+          <div style="text-align: center" class="pt-5">
             <el-link type="primary" :underline="false">个人中心</el-link>
           </div>
-          <div style="text-align: center">
+          <div style="text-align: center" class="pt-5 pb-5">
             <el-link @click="logOut" type="primary" :underline="false"
               >退出登录</el-link
             >
@@ -82,7 +82,8 @@ export default defineComponent({
 
     const logOut = () => {
       localStorage.removeItem("token");
-      router.push({ name: "login" });
+      window.location.reload()
+      // router.push({ path: "/login" });
     };
     const changeLange=()=>{
   // let index:number=ref(0)
@@ -96,6 +97,11 @@ export default defineComponent({
   localStorage.setItem("locale",idx);
   i18n.global.locale = idx;
 }
+const { t } = i18n.global
+const routeTitle=(name:string)=>{
+  
+  return t('route.'+name)
+}
     onMounted(() => {});
     //返回一个对象
     return {
@@ -104,7 +110,8 @@ export default defineComponent({
       logOut,
       route,
       navBar,
-      changeLange
+      changeLange,
+      routeTitle
     };
   },
 });

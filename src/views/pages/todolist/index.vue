@@ -31,6 +31,11 @@
           >
         </div>
         <div>
+          <el-checkbox v-model="checked1" label="Option 1" size="large"
+            >i18n 国际化</el-checkbox
+          >
+        </div>
+        <div>
           <el-checkbox v-model="checked2" label="Option 1" size="large"
             >页面平滑滚动到自定位置</el-checkbox
           >

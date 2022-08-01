@@ -27,6 +27,8 @@
 <script lang="ts">
 import { defineComponent,reactive, ref, } from 'vue'
 import { useRouter } from "vue-router";
+import { ElMessage } from 'element-plus'
+
 export default defineComponent({
 	name: 'login',
 	setup() {
@@ -37,7 +39,8 @@ export default defineComponent({
 		const router = useRouter();
 		const submitForm = (ruleFormRef: any) => {
 			localStorage.setItem('token', '123')
-			router.push({ name: 'CompDemo' })
+			 ElMessage.success('登录成功！')
+			router.push({ path: '/' })
 		}
 
 
@@ -57,6 +60,7 @@ export default defineComponent({
 	height: 100vh;
 	width: 100%;
 	backdrop-filter: blur(10px); /* 模糊半径 */
+	 -moz-backdrop-filter: blur(10px); /* Firefox */
 }
 
 .login::before {

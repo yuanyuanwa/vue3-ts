@@ -76,7 +76,7 @@ export const DynamicRoutes = [
         component: () => import('@/views/pages/dashboard/index.vue'),
         name: "Dashboard",
         meta: {
-          name: "首页",
+          name: "dashboard",
           icon: "",
         },
       },
@@ -85,7 +85,7 @@ export const DynamicRoutes = [
         component: () => import('@/components/view/view.vue'),
         name: "CompDemo",
         meta: {
-          name: "组件",
+          name: "assembly",
           icon: "el-icon-s-home",
         },
         children: [
@@ -94,7 +94,7 @@ export const DynamicRoutes = [
             component: () => import('@/components/view/view.vue'),
             name: "Test",
             meta: {
-              name: "封装echarts",
+              name: "encapsulate",
               icon: "Aim",
             },
             children: [
@@ -163,7 +163,7 @@ export const DynamicRoutes = [
         component: () => import('@/views/pages/pageDemo/index.vue'),
         name: "PageDemo",
         meta: {
-          name: "页面",
+          name: "pages",
           icon: "el-icon-s-home",
         },
       },
@@ -172,7 +172,7 @@ export const DynamicRoutes = [
         component: () => import('@/views/pages/photos/index.vue'),
         name: "Photos",
         meta: {
-          name: i18n.global.t('home.name'),
+          name: 'photo',
           icon: "el-icon-s-home",
         },
       },
