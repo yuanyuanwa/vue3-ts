@@ -64,12 +64,65 @@
       <span class="font-bold">一些网址</span>
     </div>
     <div>
-      <el-link
-        href="https://animate.style/"
-        :underline="false"
-        target="_blank"
+      <el-link href="https://animate.style/" :underline="false" target="_blank"
         >https://animate.style</el-link
       >
+    </div>
+
+    <div class="pt-20 pb-10">
+      <div class="flex-align-center pb-20">
+        <div class="react" />
+        <span class="font-bold">过渡（transition ）& 动画（animation）</span>
+      </div>
+      <div>1、区别：animation不需要触发事件，transition需要触发事件</div>
+      <div class="pt-10">
+        <div class="pb-10 pb-10">2、transition</div>
+        <div class="pl-20 pb-10">
+          transition: property name | duration | timing function | delay
+        </div>
+        <div class="pl-20 pb-10">
+          property name：指定CSS属性的name，transition效果 / all
+        </div>
+        <div class="pl-20 pb-10">
+          duration：transition效果需要指定多少秒或毫秒才能完成
+        </div>
+        <div class="pl-20 pb-10">
+          timing function：指定transition效果的转速曲线 /linear / ease / ease-in
+          / ease-out / ease-in-out / cubic-bezier(n,n,n,n) /
+        </div>
+        <div class="pl-20 pb-10">delay：定义transition效果开始的时候</div>
+        <div class="pl-20 pb-10">多个属性用逗号隔开:transition: height .8s, color .8s;</div>
+      </div>
+      <div class="pb-10">
+        <div class="pb-10 pb-10">3、animation</div>
+        <div class="pl-20 pb-10">
+          animation: name | duration | timing-function | delay | iteration-count | direction | fill-mode | play-state;
+        </div>
+        <div class="pl-20 pb-10">
+           @keyframes 用来定义动画           
+        </div>
+        <div class="pl-20 pb-10">
+           animation-name 规定 @keyframes 动画的名称（必须的）           
+        </div>
+        <div class="pl-20 pb-10">
+          animation-timingfunction  规定动画的速度曲线，默认是“ease”
+        </div>
+        <div class="pl-20 pb-10">
+           animation-delay 规定动画何时开始，默认是 0           
+        </div>
+        <div class="pl-20 pb-10">
+           animation-iteration-count 规定动画被播放的次数，默认是 1，还有 infinite           
+        </div>
+        <div class="pl-20 pb-10">
+           animation-direction 规定动画是否在下一周期逆向播放，默认是 "normal", alternate 逆播放         
+        </div>
+        <div class="pl-20 pb-10">
+           animation-play-state 规定动画是否正在运行或暂停。默认是 "running", 还有 "paused"          
+        </div>
+        <div class="pl-20 pb-10">
+           animation 所有动画属性的简写属性，除了animation-play-state 属性          
+        </div>
+      </div>
     </div>
   </div>
 </template>

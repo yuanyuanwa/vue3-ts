@@ -89,7 +89,7 @@ export default defineComponent({
           formatter: function (params:any) {
             let res = "";
             for (let i = params.length - 1; i > -1; i--) {
-              var data:string = "" + params[i].name + "<br/>";
+              var data:any = "" + params[i].name + "<br/>";
               res +=
                 '<div style="display:flex;justify-content: space-between;">' +
                 "<div>" +
