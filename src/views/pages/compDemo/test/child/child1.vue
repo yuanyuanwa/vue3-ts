@@ -2,7 +2,7 @@
   <div class="p-10">
     <div class="flex-align-center pb-20">
       <div class="react" />
-      <span class="font-bold">单折线图</span>
+      <span class="font-bold">单折线图{{$t('home.name')}}</span>
     </div>
     <div
       style="
@@ -36,6 +36,7 @@
 <script lang="ts" setup>
 import lineChart from "@/components/echarts/lineChart.vue";
 import stackedLineChart from "@/components/echarts/stackedLineChart.vue";
+
 // import { defineComponent, ref, watch, toRefs, onMounted } from "vue";
 // export default defineComponent({
 //   components: {
@@ -49,3 +50,7 @@ const typeComponentMap = {
 
 
 </script>
+
+<style lang="scss" scoped>
+
+</style>

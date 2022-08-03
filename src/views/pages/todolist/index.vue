@@ -31,6 +31,11 @@
           >
         </div>
         <div>
+          <el-checkbox v-model="checked1" label="Option 1" size="large"
+            >i18n 国际化</el-checkbox
+          >
+        </div>
+        <div>
           <el-checkbox v-model="checked2" label="Option 1" size="large"
             >页面平滑滚动到自定位置</el-checkbox
           >
@@ -38,6 +43,11 @@
         <div>
           <el-checkbox v-model="checked2" label="Option 1" size="large"
             >首页</el-checkbox
+          >
+        </div>
+        <div>
+          <el-checkbox v-model="checked2" label="Option 1" size="large"
+            >axios二次封装</el-checkbox
           >
         </div>
         <div>
@@ -58,6 +68,11 @@
         <div>
           <el-checkbox v-model="checked2" label="Option 1" size="large"
             >vue3的vuex模块化后用法总结</el-checkbox
+          >
+        </div>
+        <div>
+          <el-checkbox v-model="checked2" label="Option 1" size="large"
+            >canvas绘制星空</el-checkbox
           >
         </div>
       </div>

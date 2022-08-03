@@ -2,11 +2,11 @@
   <div>
     <NavBar />
     <div style="display: flex">
-      <div style="overflow: scroll; height: 80vh">
+      <div style="overflow: auto; height: 80vh;scrollbar-width: thin;">
         <SiderBar/>
       </div>
 
-      <div style="overflow-y: scroll;overflow-x: hidden; height: 80vh; flex-grow: 1">
+      <div style="overflow-y: scroll;overflow-x: hidden; height: 80vh; flex-grow: 1;  scrollbar-width: thin;">
         <AppMain  />
       </div>
     </div>

@@ -21,7 +21,7 @@
                 :is="item.meta.icon"
                 style="width: 1.5em; height: 1.5em; margin-right: 8px"
               ></component>
-              <span>{{ item.meta.name }}</span>
+              <span>{{ routeTitle(item.meta.name) }}</span>
             </template>
             <el-menu-item
               v-for="subItem in item.children"
@@ -33,7 +33,7 @@
                 :is="subItem.meta.icon"
                 style="width: 1.5em; height: 1.5em; margin-right: 8px"
               ></component>
-              <template #title>{{ subItem.meta.name }}</template>
+              <template #title>{{ routeTitle(subItem.meta.name) }}</template>
             </el-menu-item>
           </el-sub-menu>
         </div>
@@ -43,7 +43,7 @@
               :is="item.meta.icon"
               style="width: 1.5em; height: 1.5em; margin-right: 8px"
             ></component>
-            <template #title>{{ item.meta.name }}</template>
+            <template #title>{{ routeTitle(item.meta.name) }}</template>
           </el-menu-item>
         </div>
       </div>
@@ -55,6 +55,7 @@
 import { defineComponent, ref, watch, reactive, nextTick } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import store from "@/store/index";
+import i18n from "@/i18n/index";
 
 export default defineComponent({
   name: "",
@@ -98,6 +99,12 @@ export default defineComponent({
         return false;
       }
     };
+    const { t } = i18n.global;
+    const routeTitle = (name: string) => {
+      // return name
+      let a="route." + name
+      return t(a);
+    };
     //返回一个对象
     return {
       isCollapse,
@@ -107,6 +114,7 @@ export default defineComponent({
       route,
       changePage,
       haveChild,
+      routeTitle,
     };
   },
 });

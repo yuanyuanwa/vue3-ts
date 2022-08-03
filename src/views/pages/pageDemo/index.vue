@@ -1,7 +1,7 @@
 <template>
   <div class="p-20">
     <div>
-      <el-button @click="test">123</el-button>
+      <el-button @click="test">接口测试</el-button>
       <el-button text>123</el-button>
       <el-button color="#626aef" @click="dialogTableVisible = true">弹窗</el-button>
     </div>
@@ -15,44 +15,6 @@
       </div>
     </div>
 
-    <div>
-      <el-table :data="tableData" style="width: 100%">
-        <template #empty>
-          <el-empty description="暂无数据" />
-        </template>
-
-        <el-table-column prop="date" label="Date" width="180" />
-        <el-table-column prop="name" label="Name" width="180" />
-        <el-table-column prop="address" label="Address" />
-        <el-table-column prop="address" label="Address">
-          <template #default="scope">
-            <div style="display: flex; align-items: center">
-              <el-icon>
-                <timer />
-              </el-icon>
-            </div>
-          </template>
-        </el-table-column>
-      </el-table>
-      <el-table :data="tableData1" style="width: 100%" class="pt-20">
-        <template #empty>
-          <el-empty description="暂无数据" />
-        </template>
-
-        <el-table-column prop="date" label="Date" width="180" />
-        <el-table-column prop="name" label="Name" width="180" />
-        <el-table-column prop="address" label="Address" />
-        <el-table-column prop="address" label="Address">
-          <template #default="scope">
-            <div style="display: flex; align-items: center">
-              <el-icon>
-                <timer />
-              </el-icon>
-            </div>
-          </template>
-        </el-table-column>
-      </el-table>
-    </div>
 
     <el-dialog v-model="dialogTableVisible" title="Shipping address">
       <el-table :data="tableData" max-height="250">
@@ -74,11 +36,12 @@ import lineChart from '@/components/echarts/lineChart.vue'
 import { defineComponent, ref, watch, toRefs, onMounted } from 'vue';
 import { Timer } from '@element-plus/icons-vue'
 import { ceshi } from '@/api/index'
+import { ElMessage } from 'element-plus'
 export default defineComponent({
   name: '',
   props: {},
   components: {
-    lineChart,
+    lineChart,//不用在return返回
     Timer
   },
   setup() {
@@ -141,8 +104,11 @@ export default defineComponent({
     const test = () => {
       console.log(123123123)
       ceshi().then(res => {
-        console.log(123123, res)
-
+        console.log(123123, res.data)
+        ElMessage({
+        message: "测试接口:"+res.data.content,
+        type: "success",
+      });
       })
     }
     const handleSizeChange = (val: number) => {

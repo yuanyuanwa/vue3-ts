@@ -4,7 +4,7 @@ import axios from "@/api/request/config";
 
 export const ceshi = () => {
   return axios.request({
-      url: '/test/release/ceshi',
+      url: '/testApi/release/ceshi',
       method: 'get'
   })
 }

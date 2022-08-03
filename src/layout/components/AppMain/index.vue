@@ -6,7 +6,7 @@
   </section> -->
   <router-view v-slot="{ Component }" style="height: 100%">
     <transition name="fade-transform" mode="out-in">
-      <component :is="Component" />
+      <component :is="Component" class="body"/>
     </transition>
   </router-view>
 </template>
@@ -20,6 +20,7 @@ const key = computed(() => {
   return route.path;
 });
 
+//本来是想写一个页面滚动的动效，希望有天能实现
 // let x: number;
 // let y: number;
 // function getMP(e: any) {

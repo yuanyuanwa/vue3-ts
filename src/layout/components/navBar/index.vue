@@ -15,7 +15,7 @@
       active-text-color="#3D708f"
       @select="handleSelect"
     >
-    <el-menu-item :index="item.name" v-for="(item,index) in navBar" :key="index">{{item.meta.name}}</el-menu-item>
+    <el-menu-item :index="item.name" v-for="(item,index) in navBar" :key="index">{{routeTitle(item.meta.name)}}</el-menu-item>
       <!-- <el-menu-item index="Dashboard">首页</el-menu-item>
       <el-menu-item index="CompDemo">组件</el-menu-item>
       <el-menu-item index="PageDemo">文章</el-menu-item>
@@ -25,19 +25,23 @@
     <div
       class="pr-20"
       style="
+        display:flex;
         background: #eda7a7;
         border-bottom: solid 1px #dcdfe6;
         color: white;
         line-height: 4;
       "
     >
+    <div class="pr-10">
+      <el-button @click="changeLange" size="mini" type="primary">中/英</el-button>
+    </div>
       <el-popover placement="bottom-start" :width="150" trigger="hover">
-        <template #reference>hi~欢迎回来</template>
+        <template #reference>{{$t('home.name')}}</template>
         <div style="border: 2px dashed #eda7a7">
-          <div style="text-align: center">
+          <div style="text-align: center" class="pt-5">
             <el-link type="primary" :underline="false">个人中心</el-link>
           </div>
-          <div style="text-align: center">
+          <div style="text-align: center" class="pt-5 pb-5">
             <el-link @click="logOut" type="primary" :underline="false"
               >退出登录</el-link
             >
@@ -46,16 +50,17 @@
       </el-popover>
     </div>
   </div>
-  <div class="p-20">
+  <div class="p-20" style="box-shadow: rgb(0 0 0 / 10%) 0px -2px 10px 0px;">
     <Breadcrumb />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onMounted } from "vue";
+import { defineComponent, ref, Ref,onMounted } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import Breadcrumb from "./bread.vue";
 import store from "@/store/index";
+import i18n from "@/i18n/index";
 
 export default defineComponent({
   name: "",
@@ -77,8 +82,26 @@ export default defineComponent({
 
     const logOut = () => {
       localStorage.removeItem("token");
-      router.push({ name: "login" });
+      window.location.reload()
+      // router.push({ path: "/login" });
     };
+    const changeLange=()=>{
+  // let index:number=ref(0)
+  let index:Ref<number> = ref(0)
+  if(localStorage.getItem('locale')=='zh'){
+    index.value=1
+  }else{
+     index.value=0
+  }
+  const idx :any= ['zh','en'][index.value] || navigator.language.slice(0, 2);
+  localStorage.setItem("locale",idx);
+  i18n.global.locale = idx;
+}
+const { t } = i18n.global
+const routeTitle=(name:string)=>{
+  
+  return t('route.'+name)
+}
     onMounted(() => {});
     //返回一个对象
     return {
@@ -87,6 +110,8 @@ export default defineComponent({
       logOut,
       route,
       navBar,
+      changeLange,
+      routeTitle
     };
   },
 });

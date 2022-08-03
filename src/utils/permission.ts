@@ -87,7 +87,7 @@ const permissionList = [
         'component':'pages/todolist/index.vue',
         'name': "Todolist",
         'meta': {
-            'name': "TO DO LIST",
+            'name': "TODOLIST",
             'icon': "el-icon-s-home",
         },
     },
