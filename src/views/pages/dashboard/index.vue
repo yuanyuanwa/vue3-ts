@@ -2,64 +2,46 @@
   <div class="pl-20 pr-20 body">
     <!-- <div style="width: 100%; height: 100vh;"> -->
     <div  style="height: 100%;width:100%">
-      <div class="flex-justify-between" style='width:100%;height: 100%;'>
-        <div style="height: 380px; width: 380px" class="pl-20 pr-20">
+      <div class="flex-justify-around" style='width:100%;height: 100%;'>
+        <div class="pl-20 pr-20">
           <el-image
             class="img"
             :src="duanwu"
-            fit="fill"
-            style="border-radius: 20%"
+            fit="cover"
+            style="border-radius: 20%;height: 300px; width: 300px;border:5px dashed #EDA7A7"
           />
         </div>
-        <div style="position:relative;flex-grow:1">
-          <div style="height: 100px; width: 100px;position:absolute;top:-60px;left:-20px">
-            <el-image
-              class="img"
-              :src="imageUrl"
-              fit="fill"
-              style="border-radius: 20%"
-            />
-          </div>
-          <div style="height: 100px; width: 100px;position:absolute;top:-60px;right:-20px">
-            <el-image
-              class="img"
-              :src="imageUrl"
-              fit="fill"
-              style="border-radius: 20%"
-            />
-          </div>
-          <div style="height: 100px; width: 100px;position:absolute;bottom:-60px;left:-20px">
-            <el-image
-              class="img"
-              :src="imageUrl"
-              fit="fill"
-              style="border-radius: 20%"
-            />
-          </div>
-          <div style="height: 100px; width: 100px;position:absolute;bottom:-60px;right:-20px">
-            <el-image
-              class="img"
-              :src="imageUrl"
-              fit="fill"
-              style="border-radius: 20%"
-            />
-          </div>
-          <div style="border: 5px dashed #FF8587;width:100%;height:300px;border-radius: 2%;">
-          </div>
+        <div class="pl-20 pr-20">
+          <el-image
+            class="img"
+            :src="duanwu2"
+            fit="cover"
+            style="border-radius: 20%;height: 300px; width: 300px;border:5px dashed #EDA7A7"
+          />
+        </div>
+        <div class="pl-20 pr-20">
+          <el-image
+            class="img"
+            :src="duanwu3"
+            fit="cover"
+            style="border-radius: 20%;height: 300px; width: 300px;border:5px dashed #EDA7A7"
+          />
         </div>
       </div>
     </div>
     <!-- </div> -->
-    <!-- <div>123</div>
     <div>123</div>
     <div>123</div>
     <div>123</div>
-    <div>123</div> -->
+    <div>123</div>
+    <div>123</div>
   </div>
 </template>
 <script lang="ts" setup>
 const imageUrl = require("@/assets/img/GULULU.png");
 const duanwu = require("@/assets/img/duanwu.jpg");
+const duanwu2 = require("@/assets/img/duanwu2.jpg");
+const duanwu3 = require("@/assets/img/duanwu3.jpg");
 </script>
 <style lang="scss" scoped>
 .body {
