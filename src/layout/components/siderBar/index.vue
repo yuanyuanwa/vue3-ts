@@ -1,5 +1,5 @@
 <template>
-  <div v-if="sidebarMenu && sidebarMenu.length > 0">
+  <div v-if="sidebarMenu && sidebarMenu.length > 0" style="height: 100%;">
     <!-- <el-radio-group v-model="isCollapse" style="margin-bottom: 20px">
       <el-radio-button :label="false">expand</el-radio-button>
       <el-radio-button :label="true">collapse</el-radio-button>
@@ -11,7 +11,7 @@
       :collapse="isCollapse"
       @open="handleOpen"
       @close="handleClose"
-      style="flex-shrink: 0"
+      style="flex-shrink: 0;height: 100%;"
     >
       <div v-for="(item, index) in sidebarMenu" :key="index">
         <div v-if="haveChild(item)">

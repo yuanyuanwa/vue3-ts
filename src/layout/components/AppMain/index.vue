@@ -4,7 +4,7 @@
       <router-view :key="key" style="height: 100%" />
     </transition>
   </section> -->
-  <router-view v-slot="{ Component }" style="height: 100%">
+  <router-view v-slot="{ Component }" style="height:100%">
     <transition name="fade-transform" mode="out-in">
       <component :is="Component" class="body"/>
     </transition>
