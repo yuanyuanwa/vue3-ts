@@ -6,7 +6,7 @@
   </section> -->
   <router-view v-slot="{ Component }" style="height: 100%">
     <transition name="fade-transform" mode="out-in">
-      <component :is="Component" />
+      <component :is="Component" class="body"/>
     </transition>
   </router-view>
 </template>
