@@ -1,14 +1,19 @@
 <template>
   <div class="pl-20 pr-20 body">
     <!-- <div style="width: 100%; height: 100vh;"> -->
-    <div  style="height: 100%;width:100%">
-      <div class="flex-justify-around" style='width:100%;height: 100%;'>
+    <div style="height: 100%; width: 100%">
+      <div class="flex-justify-around" style="width: 100%; height: 100%">
         <div class="pl-20 pr-20">
           <el-image
             class="img"
             :src="duanwu"
             fit="cover"
-            style="border-radius: 20%;height: 300px; width: 300px;border:5px dashed #EDA7A7"
+            style="
+              border-radius: 20%;
+              height: 300px;
+              width: 300px;
+              border: 5px dashed #eda7a7;
+            "
           />
         </div>
         <div class="pl-20 pr-20">
@@ -16,7 +21,12 @@
             class="img"
             :src="duanwu2"
             fit="cover"
-            style="border-radius: 20%;height: 300px; width: 300px;border:5px dashed #EDA7A7"
+            style="
+              border-radius: 20%;
+              height: 300px;
+              width: 300px;
+              border: 5px dashed #eda7a7;
+            "
           />
         </div>
         <div class="pl-20 pr-20">
@@ -24,7 +34,12 @@
             class="img"
             :src="duanwu3"
             fit="cover"
-            style="border-radius: 20%;height: 300px; width: 300px;border:5px dashed #EDA7A7"
+            style="
+              border-radius: 20%;
+              height: 300px;
+              width: 300px;
+              border: 5px dashed #eda7a7;
+            "
           />
         </div>
       </div>
@@ -53,7 +68,6 @@ const duanwu3 = require("@/assets/img/duanwu3.jpg");
     ),
     linear-gradient(rgba(217, 212, 212, 0.5) 50%, transparent 0);
   background-size: 70px 70px;
-  overflow: scroll;
 }
 .img {
   transition: all 0.3s ease;

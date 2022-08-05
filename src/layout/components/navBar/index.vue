@@ -2,8 +2,9 @@
   <div style="display: flex">
     <div style="background: #eda7a7; border-bottom: solid 1px #dcdfe6">
       <svg class="icon-font" style="width: 70px; height: 60px">
-        <use xlink:href="#icon-mao" />
+        <use xlink:href="#icon-mianhuatang" />
       </svg>
+      <!-- <i class="iconfont iconfontzhizuobiaozhun023143"></i> -->
     </div>
     <el-menu
       style="flex-grow: 1"
@@ -33,7 +34,7 @@
       "
     >
     <div class="pr-10">
-      <el-button @click="changeLange" size="mini" type="primary">中/英</el-button>
+      <el-button @click="changeLange" size="small" type="primary">中/英</el-button>
     </div>
       <el-popover placement="bottom-start" :width="150" trigger="hover">
         <template #reference>{{$t('home.name')}}</template>

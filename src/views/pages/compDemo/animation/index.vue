@@ -61,6 +61,16 @@
 
     <div class="flex-align-center pb-20 pt-20">
       <div class="react" />
+      <span class="font-bold">其他例子</span>
+    </div>
+    <div class="light flex-center">
+      <svg class="icon-font" style="width: 70px; height: 60px">
+        <use xlink:href="#icon-mianhuatang" />
+      </svg>
+    </div>
+
+    <div class="flex-align-center pb-20 pt-20">
+      <div class="react" />
       <span class="font-bold">一些网址</span>
     </div>
     <div>
@@ -261,5 +271,22 @@ const search = (event: any) => {
 }
 .search3:hover {
   height: 200px;
+}
+
+@keyframes light {
+    from {
+       box-shadow:0px 0px 4px white;
+    }
+    to {
+      box-shadow:0px 0px 16px skyBlue;
+    }
+}
+.light {
+  margin:300px;
+  width: 100px;
+  height: 100px;
+  margin:20px;
+  border-radius: 50%;
+  animation: light 2s ease-in-out infinite alternate;
 }
 </style>

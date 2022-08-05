@@ -6,7 +6,7 @@
     </div>
     <component
       :is="typeComponentMap.carousel"
-      :foo="11123"
+      :foo="'11123'"
       :imageList="imageList"
       @getMapData="getMapData"
     />
@@ -18,24 +18,6 @@
 
     <div>
       <el-table :data="tableData" style="width: 100%">
-        <template #empty>
-          <el-empty description="暂无数据" />
-        </template>
-
-        <el-table-column prop="date" label="Date" width="180" />
-        <el-table-column prop="name" label="Name" width="180" />
-        <el-table-column prop="address" label="Address" />
-        <el-table-column prop="address" label="Address">
-          <template #default="scope">
-            <div style="display: flex; align-items: center">
-              <el-icon>
-                <timer />
-              </el-icon>
-            </div>
-          </template>
-        </el-table-column>
-      </el-table>
-      <el-table :data="tableData1" style="width: 100%" class="pt-20">
         <template #empty>
           <el-empty description="暂无数据" />
         </template>
