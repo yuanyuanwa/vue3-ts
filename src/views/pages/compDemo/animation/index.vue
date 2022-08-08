@@ -2,7 +2,7 @@
   <div class="p-10">
     <div class="flex-align-center pb-20">
       <div class="react" />
-      <span class="font-bold">input框</span>
+      <span class="font-bold a-shake">input框</span>
     </div>
     <div>
       <div class="search">
@@ -26,6 +26,9 @@
         <div class="search3">
           <div class="pt-10">123</div>
           <div class="pt-20">321</div>
+          <div class="pt-20">321</div>
+          <div class="pt-20">321</div>
+          <div class="pt-20">321</div>
         </div>
       </div>
       <div class="pt-10">鼠标移动上去{{ searchText }}</div>
@@ -33,7 +36,7 @@
 
     <div class="flex-align-center pt-20">
       <div class="react" />
-      <span class="font-bold">图片动效</span>
+      <span class="font-bold a-fadeinT">图片动效</span>
     </div>
     <div style="display: flex; justify-content: space-around">
       <div class="img pb-40 pt-40">
@@ -61,7 +64,7 @@
 
     <div class="flex-align-center pb-20 pt-20">
       <div class="react" />
-      <span class="font-bold">其他例子</span>
+      <span class="font-bold a-rotateinRT">其他例子</span>
     </div>
     <div class="light flex-center">
       <svg class="icon-font" style="width: 70px; height: 60px">

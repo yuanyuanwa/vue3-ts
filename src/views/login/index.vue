@@ -10,10 +10,10 @@
 					label-width="70px"
 					class="demo-ruleForm"
 				>
-					<el-form-item label="name：" prop="pass">
+					<el-form-item label="account:" prop="pass">
 						<el-input v-model="formData.pass" type="text" autocomplete="off" />
 					</el-form-item>
-					<el-form-item label="password：" prop="checkPass">
+					<el-form-item label="password:" prop="checkPass">
 						<el-input v-model="formData.checkPass" type="password" autocomplete="off" />
 					</el-form-item>
 

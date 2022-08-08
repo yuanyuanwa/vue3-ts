@@ -1,10 +1,10 @@
 <template>
   <div style="display: flex">
-    <div style="background: #eda7a7; border-bottom: solid 1px #dcdfe6">
+    <div style="background: #eda7a7; border-bottom: solid 1px #dcdfe6" class="flex-center">
       <svg class="icon-font" style="width: 70px; height: 60px">
-        <use xlink:href="#icon-mianhuatang" />
+        <use xlink:href="#icon-maozhao" />
       </svg>
-      <!-- <i class="iconfont iconfontzhizuobiaozhun023143"></i> -->
+       <!-- <i class="iconfont icon-iconfontzhizuobiaozhun023143" style="font-size:64px"></i> -->
     </div>
     <el-menu
       style="flex-grow: 1"
