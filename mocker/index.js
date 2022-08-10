@@ -31,29 +31,3 @@
 //   }
 // }
 // module.exports = proxy
-module.exports = (middlewares, devServer) => {
-  if (!devServer) {
-    throw new Error("webpack-dev-server is not defined");
-    }
-  if (process.env.MOCK == "true") { 
-    // middlewares.unshift({
-    //     //`name`是可选的
-    //     name: "user-classPlan",
-    //     path: "/user/classPlan",
-    //     middleware: (req, res) => {
-    //     // mock 数据模拟接口数据
-    //     let json = getJsonFile("./classPlan.json5")
-    //     res.json(Mock.mock(json));
-    //     },
-    // });
-    // middlewares.unshift({
-    //   path: "/user/userCart",
-    //   middleware: (req, res) => {
-    //     // mock 数据模拟接口数据
-    //     let json = getJsonFile("./userCart.json5")
-    //     res.json(Mock.mock(json));
-    //   },
-    // });
-    return middlewares;
-  }
-};

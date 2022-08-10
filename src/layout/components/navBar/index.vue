@@ -1,5 +1,5 @@
 <template>
-  <div style="display: flex">
+  <div style="display: flex;background: #EDA7A7;">
     <div style="background: #eda7a7; border-bottom: solid 1px #dcdfe6" class="flex-center">
       <svg class="icon-font" style="width: 70px; height: 60px">
         <use xlink:href="#icon-maozhao" />
@@ -27,7 +27,6 @@
       class="pr-20"
       style="
         display:flex;
-        background: #eda7a7;
         border-bottom: solid 1px #dcdfe6;
         color: white;
         line-height: 4;
