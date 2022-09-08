@@ -156,6 +156,15 @@ export const DynamicRoutes = [
               icon: "Chicken",
             },
           },
+          {
+            path: "compDemo",
+            component: () => import('@/views/pages/compDemo/intro/index.vue'),
+            name: "新手指引",
+            meta: {
+              name: "新手指引",
+              icon: "Chicken",
+            },
+          },
         ]
       },
       {

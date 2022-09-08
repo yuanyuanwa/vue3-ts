@@ -16,5 +16,6 @@ export default {
     '插件':'plug-in',
     '富文本':'Rich text',
     '动效':'Kinetic effect',
+    '新手指引':'Novice guide',
   }
 }
