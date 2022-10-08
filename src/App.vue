@@ -7,6 +7,11 @@
 
 <style lang="scss">
 @import "../src/style/uniformStyle.scss";
+//css设置变量
+:root {
+      --reed: red;
+      --bluee:blue;
+    }
 #app {
   /* font-family: Avenir, Helvetica, Arial, sans-serif; */
   -webkit-font-smoothing: antialiased;

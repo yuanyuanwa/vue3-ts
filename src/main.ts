@@ -13,7 +13,7 @@ import '@/assets/iconfont/iconfont.css'
 import '@/assets/iconfont/iconfont.js'
 
 
-import '@/style/uniformStyle.scss'
+// import '@/style/uniformStyle.scss'
 
 import vueI18n from './i18n'
 

@@ -96,6 +96,8 @@ export default defineComponent({
   const idx :any= ['zh','en'][index.value] || navigator.language.slice(0, 2);
   localStorage.setItem("locale",idx);
   i18n.global.locale = idx;
+  console.log(111,document.documentElement.style.getPropertyValue(`--reed`))
+  document.documentElement.style.setProperty(`--reed`, 'blue');
 }
 const { t } = i18n.global
 const routeTitle=(name:string)=>{
