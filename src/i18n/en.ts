@@ -17,5 +17,7 @@ export default {
     '富文本':'Rich text',
     '动效':'Kinetic effect',
     '新手指引':'Novice guide',
+    '封装组件':'components',
+    '进度条':'progress',
   }
 }

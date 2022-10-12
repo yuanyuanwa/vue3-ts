@@ -1,9 +1,9 @@
 <template>
     <div :class="mask">
     </div>
-    <div :class="box" style="z-index:999999999999">1</div>
+    <div :class="box" style="z-index:999999999999">指引指引指引指引指引指引指引</div>
     <div class="btnn" style="z-index:999999999999">
-        <el-button @click="btn" style="z-index:999999999999">2</el-button>
+        <el-button @click="btn" style="z-index:999999999999">click</el-button>
     </div>
     <!-- https://juejin.cn/post/7129788202335862791 -->
     <div style="width:100%;height: 100%;" class="flex-center">
@@ -23,7 +23,7 @@ const num: Ref<number> = ref(1)
 
 const btn = () => {
     num.value = num.value + 1
-    if (num.value < 4) {
+    if (num.value < 5) {
         box.value = 'box' + num.value.toString()
         mask.value = 'Mask'
     } else {
@@ -91,6 +91,15 @@ onMounted(() => {
 .box3 {
     position: absolute;
     top: 400px;
+    left: 500px;
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+    transition: all 0.2s ease;
+}
+.box4 {
+    position: absolute;
+    top: 200px;
     left: 500px;
     width: 100px;
     height: 100px;

@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw, createWebHashHistory } from 'vue-router'
 import store from "@/store/index";
-import i18n from '@/i18n/index'
 
 
 const routes: Array<RouteRecordRaw> = [
@@ -95,7 +94,7 @@ export const DynamicRoutes = [
             name: "Test",
             meta: {
               name: "encapsulate",
-              icon: "Aim",
+              icon: "Aim",//应该是直接用的，找不到笔记了2022/10/10
             },
             children: [
               {
@@ -143,6 +142,26 @@ export const DynamicRoutes = [
                 meta: {
                   name: "富文本",
                   icon: "Tickets",
+                },
+              }
+            ]
+          },
+          {
+            path: "components",
+            component: () => import('@/components/view/view.vue'),
+            name: "Components",
+            meta: {
+              name: "封装组件",
+              icon: "Cherry",
+            },
+            children: [
+              {
+                path: "progress",
+                component: () => import('@/views/pages/compDemo/componentPages/progress/index.vue'),
+                name: "Progress",
+                meta: {
+                  name: "进度条",
+                  icon: "Progress",
                 },
               }
             ]
