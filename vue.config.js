@@ -15,6 +15,14 @@ module.exports = defineConfig({
         },
 				logLevel:'debug',
         changeOrigin: true
+      },
+      '/localApi': {
+        target: 'http://localhost:3001/',
+        pathRewrite: {
+          '^/localApi': ''
+        },
+				logLevel:'debug',
+        changeOrigin: true
       }
     }
   }
