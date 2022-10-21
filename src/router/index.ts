@@ -163,7 +163,16 @@ export const DynamicRoutes = [
                   name: "进度条",
                   icon: "Progress",
                 },
-              }
+              },
+              {
+                path: "maodian",
+                component: () => import('@/views/pages/compDemo/componentPages/maodian/index.vue'),
+                name: "Maodian",
+                meta: {
+                  name: "锚点滚动",
+                  icon: "Cherry",
+                },
+              },
             ]
           },
           {

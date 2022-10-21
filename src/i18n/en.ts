@@ -4,7 +4,7 @@ export default {
   },
   route:{
     photo:'Photo',
-    pages:'Pages',
+    pages:'TestPage',
     assembly:'Assembly',
     dashboard:'Dashboard',
     TODOLIST:'TO DO LIST',
@@ -19,5 +19,6 @@ export default {
     '新手指引':'Novice guide',
     '封装组件':'components',
     '进度条':'progress',
+    '锚点滚动':'maodian',
   }
 }

@@ -1,4 +1,11 @@
 <template>
+  <div style="width: 600px" class="p-20">
+    <marquee
+      ><span style="font-weight: bolder; font-size: 20px"
+        >正常心跳:__/\__/\____看见你的心跳:_/\_/\_/\_/\_和你聊天的心跳:/\/\/\/\/\/\/\/\/\你不理我的心跳:________</span
+      ></marquee
+    >
+  </div>
   <div class="p-10">
     <div class="flex-align-center pb-20">
       <div class="react" />
@@ -343,15 +350,15 @@ const search = (event: any) => {
 }
 
 @keyframes cuIcon-spin {
-	0% {
-		-webkit-transform: rotate(0);
-		transform: rotate(0);
-	}
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
 
-	100% {
-		-webkit-transform: rotate(359deg);
-		transform: rotate(359deg);
-	}
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
 }
 
 .fangkuai {

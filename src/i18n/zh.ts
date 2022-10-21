@@ -4,7 +4,7 @@ export default {
   },
   route:{
     photo:'日常',
-    pages:'页面',
+    pages:'测试页面',
     assembly:'组件',
     dashboard:'首页',
     TODOLIST:'任务清单',
@@ -19,5 +19,6 @@ export default {
     '新手指引':'新手指引',
     '封装组件':'封装组件',
     '进度条':'进度条',
+    '锚点滚动':'锚点滚动',
   }
 }
