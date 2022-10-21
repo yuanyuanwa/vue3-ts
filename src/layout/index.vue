@@ -6,7 +6,7 @@
         <SiderBar/>
       </div>
 
-      <div style="overflow-y: auto;overflow-x: hidden; height: 85vh; flex-grow: 1;  scrollbar-width: thin;">
+      <div style="overflow-y: auto;overflow-x: hidden; height: 80vh; flex-grow: 1;  scrollbar-width: thin;">
         <AppMain  />
       </div>
     </div>
