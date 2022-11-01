@@ -17,7 +17,7 @@
         >弹窗</el-button
       >
     </div>
-
+<!-- 
     <div
       style="
         display: grid;
@@ -32,7 +32,7 @@
       <div>
         <lineChart :xData="[10, 20, 39, 49, 40]" :yName="'yyyyyyyyy'" />
       </div>
-    </div>
+    </div> -->
     <div class="p-20">
       <el-table :data="addTableData" max-height="500">
         <el-table-column property="id" label="id" width="150" />
@@ -88,7 +88,7 @@
         />
       </div>
     </el-dialog>
-    <el-dialog v-model="addDataDialogVisible" title="Shipping address">
+    <el-dialog v-model="addDataDialogVisible" title="啦啦啦啦啦">
       <el-form
         :label-position="labelPosition"
         label-width="100px"
@@ -98,7 +98,7 @@
         ref="ruleFormRef"
       >
         <el-form-item label="ID" prop="id">
-          <el-input v-model="formLabelAlign.id" />
+          <el-input v-model="formLabelAlign.id" :disabled="dataType=='update'"/>
         </el-form-item>
         <el-form-item label="Date" prop="date">
           <el-input v-model="formLabelAlign.date" />
@@ -111,9 +111,9 @@
         </el-form-item>
       </el-form>
       <div class="flex-center">
-        <el-button @click="resetForm(ruleFormRef)">重置</el-button>
+        <el-button @click="resetForm(ruleFormRef)" v-if="dataType!=='update'">重置</el-button>
         <el-button type="primary" @click="submitForm(ruleFormRef)"
-          >新增</el-button
+          >{{dataType=='update'?'更新':'新增'}}</el-button
         >
       </div>
     </el-dialog>
@@ -150,6 +150,7 @@ export default defineComponent({
   },
   setup() {
     let idData = ref("");
+    let dataType = ref("");
     const aaa = ref<null>();
     const ruleFormRef = ref<FormInstance>();
     const formLabelAlign = reactive({
@@ -190,19 +191,36 @@ export default defineComponent({
       if (!formEl) return;
       await formEl.validate((valid, fields) => {
         if (valid) {
-          addData({
-            // id: 1231,
-            ...formLabelAlign,
-          }).then((res) => {
-            ElMessage({
-              message: "插入成功！",
-              type: "success",
+          if (dataType.value == "add") {
+            addData({
+              // id: 1231,
+              ...formLabelAlign,
+            }).then((res) => {
+              ElMessage({
+                message: "插入成功！",
+                type: "success",
+              });
+              resetForm(ruleFormRef.value);
+              addDataDialogVisible.value = false;
+              idData.value = "";
+              search();
             });
-            resetForm(ruleFormRef.value)
-            addDataDialogVisible.value = false;
-            idData.value = "";
-            search();
-          });
+          } else {
+            updateData({
+              ...formLabelAlign,
+            }).then((res) => {
+              console.log(res);
+              ElMessage({
+                message: "更新成功！",
+                type: "success",
+              });
+              resetForm(ruleFormRef.value);
+              addDataDialogVisible.value = false;
+              idData.value = "";
+              search();
+            });
+          }
+          dataType.value = "";
         } else {
           console.log("error submit!", fields);
         }
@@ -286,6 +304,7 @@ export default defineComponent({
       });
     };
     const addDataa = () => {
+      dataType.value = "add";
       addDataDialogVisible.value = true;
       // let data = {
       //   id: 1231,
@@ -297,32 +316,27 @@ export default defineComponent({
       //   console.log(res);
       // });
     };
-    const updateDataa = (id:any) => {
+    const updateDataa = (id: any) => {
+      dataType.value = "update";
       addDataDialogVisible.value = true;
-       searchData(id)
+      searchData(id)
         .then((res) => {
           if (res.status == 200) {
-            let resData=res.data.data[0]
-            console.log(789789,resData)
-    // const formLabelAlign = reactive({
-    //   id: "",
-    //   date: "",
-    //   name: "",
-    //   address: "",
-    // });
-    formLabelAlign.id=resData.id
+            let resData = res.data.data[0];
+            console.log(789789, resData);
+            // const formLabelAlign = reactive({
+            //   id: "",
+            //   date: "",
+            //   name: "",
+            //   address: "",
+            // });
+            formLabelAlign.id = resData.id;
+            formLabelAlign.date = resData.date;
+            formLabelAlign.name = resData.name;
+            formLabelAlign.address = resData.address;
           }
         })
         .catch((err) => {});
-      // let data = {
-      //   id: 1231,
-      //   name: "hahahahah",
-      //   date: false,
-      //   address: "123123123",
-      // };
-      // updateData(data).then((res) => {
-      //   console.log(res);
-      // });
     };
     const search = () => {
       searchData(idData.value)
@@ -396,6 +410,7 @@ export default defineComponent({
       resetForm,
       aaa,
       idData,
+      dataType,
     };
   },
 });

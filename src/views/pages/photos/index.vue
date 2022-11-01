@@ -110,15 +110,15 @@ const isLike = () => {
 };
 
 const aaa = () => {
-  var box:any = document.getElementById("box")
-  var children:any = document.getElementById("children")
+  // var box:any = document.getElementById("box")
+  // var children:any = document.getElementById("children")
   // console.log('box.offsetWidth', box.offsetWidth)
   // console.log('box.offsetHeight', box.offsetHeight)
-  console.log('box.offsetTop', box.offsetTop)
+  // console.log('box.offsetTop', box.offsetTop)
   // console.log('box.offsetLeft', box.offsetLeft)
   // console.log('children.offsetWidth', children.offsetWidth)
   // console.log('children.offsetHeight', children.offsetHeight)
-  console.log('children.offsetTop', children.offsetTop)
+  // console.log('children.offsetTop', children.offsetTop)
   // console.log('children.offsetLeft', children.offsetLeft);
 }
 </script>
