@@ -28,6 +28,7 @@
         <el-table-column prop="address" label="Address">
           <template #default="scope">
             <div style="display: flex; align-items: center">
+              {{scope}}
               <el-icon>
                 <timer />
               </el-icon>

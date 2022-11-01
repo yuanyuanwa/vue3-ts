@@ -16,9 +16,9 @@ export const addData = (data:any) => {
       data: data,
   })
 }
-export const searchData = () => {
+export const searchData = (id:any) => {
   return axios.request({
-      url: 'http://localhost:3001/api/get?id=1231',
+      url:`http://localhost:3001/api/get?id=${id}`,
       method: 'get',
   })
 }

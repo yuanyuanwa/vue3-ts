@@ -1,11 +1,17 @@
 <template>
   <div class="p-20">
-    <div>
+    <div style="display: flex" class="pb-20">
+      <el-input
+        v-model="idData"
+        clearable
+        class="inputWidth pr-10"
+        placeholder="请输入id"
+      />
+      <el-button @click="search">查询测试</el-button>
+    </div>
+    <div ref="aaa">
       <el-button @click="test">接口测试</el-button>
       <el-button @click="addDataa">新增测试</el-button>
-      <el-button @click="search">查询测试</el-button>
-      <el-button @click="deleteDataa">删除数据</el-button>
-      <el-button @click="updateDataa">更新数据</el-button>
       <el-button text>123</el-button>
       <el-button color="#626aef" @click="dialogTableVisible = true"
         >弹窗</el-button
@@ -28,10 +34,21 @@
       </div>
     </div>
     <div class="p-20">
-      <el-table :data="addTableData" max-height="250">
+      <el-table :data="addTableData" max-height="500">
+        <el-table-column property="id" label="id" width="150" />
         <el-table-column property="date" label="Date" width="150" />
         <el-table-column property="name" label="Name" width="200" />
         <el-table-column property="address" label="Address" />
+        <el-table-column prop="address" label="操作">
+          <template #default="scope">
+            <div style="display: flex; align-items: center">
+              <el-button @click="deleteDataa(scope.row.id)"
+                ><el-icon> <timer /> </el-icon>删除</el-button
+              >
+              <el-button @click="updateDataa(scope.row.id)">更新</el-button>
+            </div>
+          </template>
+        </el-table-column>
       </el-table>
     </div>
 
@@ -80,6 +97,9 @@
         style="max-width: 460px"
         ref="ruleFormRef"
       >
+        <el-form-item label="ID" prop="id">
+          <el-input v-model="formLabelAlign.id" />
+        </el-form-item>
         <el-form-item label="Date" prop="date">
           <el-input v-model="formLabelAlign.date" />
         </el-form-item>
@@ -100,7 +120,8 @@
   </div>
 </template>
 <script lang="ts">
-import { ElMessage } from "element-plus";
+import { ElMessage, ElMessageBox } from "element-plus";
+import type { Action } from "element-plus";
 import type { FormInstance, FormRules } from "element-plus";
 import lineChart from "@/components/echarts/lineChart.vue";
 import {
@@ -128,8 +149,11 @@ export default defineComponent({
     Timer,
   },
   setup() {
+    let idData = ref("");
+    const aaa = ref<null>();
     const ruleFormRef = ref<FormInstance>();
     const formLabelAlign = reactive({
+      id: "",
       date: "",
       name: "",
       address: "",
@@ -141,7 +165,7 @@ export default defineComponent({
           message: "Please input Activity name",
           trigger: "blur",
         },
-        { min: 3, max: 5, message: "Length should be 3 to 5", trigger: "blur" },
+        // { min: 3, max: 5, message: "Length should be 3 to 5", trigger: "blur" },
       ],
       date: [
         {
@@ -167,14 +191,16 @@ export default defineComponent({
       await formEl.validate((valid, fields) => {
         if (valid) {
           addData({
-            id: 1231,
+            // id: 1231,
             ...formLabelAlign,
           }).then((res) => {
             ElMessage({
               message: "插入成功！",
               type: "success",
             });
+            resetForm(ruleFormRef.value)
             addDataDialogVisible.value = false;
+            idData.value = "";
             search();
           });
         } else {
@@ -271,33 +297,69 @@ export default defineComponent({
       //   console.log(res);
       // });
     };
-    const updateDataa = () => {
-      let data = {
-        id: 1231,
-        name: "hahahahah",
-        date: false,
-        address: "123123123",
-      };
-      updateData(data).then((res) => {
-        console.log(res);
-      });
+    const updateDataa = (id:any) => {
+      addDataDialogVisible.value = true;
+       searchData(id)
+        .then((res) => {
+          if (res.status == 200) {
+            let resData=res.data.data[0]
+            console.log(789789,resData)
+    // const formLabelAlign = reactive({
+    //   id: "",
+    //   date: "",
+    //   name: "",
+    //   address: "",
+    // });
+    formLabelAlign.id=resData.id
+          }
+        })
+        .catch((err) => {});
+      // let data = {
+      //   id: 1231,
+      //   name: "hahahahah",
+      //   date: false,
+      //   address: "123123123",
+      // };
+      // updateData(data).then((res) => {
+      //   console.log(res);
+      // });
     };
     const search = () => {
-      searchData().then((res) => {
-        if (res.status == 200) {
-          let resData = res.data.data;
-          addTableData.value = resData;
-        }
-      });
+      searchData(idData.value)
+        .then((res) => {
+          if (res.status == 200) {
+            let resData = res.data.data;
+            addTableData.value = resData;
+          }
+        })
+        .catch((err) => {});
     };
-    const deleteDataa = () => {
-      deleteData("1231").then((res) => {
-        ElMessage({
+    const deleteDataa = (id: any) => {
+      ElMessageBox.confirm(
+        "proxy will permanently delete the file. Continue?",
+        "Warning",
+        {
+          confirmButtonText: "OK",
+          cancelButtonText: "Cancel",
+          type: "warning",
+        }
+      )
+        .then(() => {
+          deleteData(id).then((res) => {
+            ElMessage({
               message: "删除成功！",
               type: "success",
             });
-        search()
-      });
+            idData.value = "";
+            search();
+          });
+        })
+        .catch(() => {
+          ElMessage({
+            type: "info",
+            message: "Delete canceled",
+          });
+        });
     };
     const handleSizeChange = (val: number) => {
       console.log(`${val} items per page`);
@@ -308,6 +370,8 @@ export default defineComponent({
 
     onMounted(() => {
       search();
+      //打印dom元素
+      console.log(7819, aaa.value);
     });
 
     return {
@@ -330,6 +394,8 @@ export default defineComponent({
       rules,
       submitForm,
       resetForm,
+      aaa,
+      idData,
     };
   },
 });
