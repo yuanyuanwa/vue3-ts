@@ -40,6 +40,7 @@ const isDashboard = (route: any) => {
   return name.trim().toLocaleLowerCase() === "Dashboard".toLocaleLowerCase();
 };
 const getBreadcrumb = () => {
+  console.log(999,store.state)
   store.commit("login/SET_MENU", route.matched[1].children);
   let matched: any = route.matched.filter(
     (item) => item.meta && item.meta.name

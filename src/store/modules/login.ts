@@ -140,7 +140,9 @@ export default {
       commit("SET_PERMISSION", [...initialRoutes, ...DynamicRoutes]);
     },
   },
-  // 模块化后的用法：store.getters['login/permissionList']
+  // 模块化后的用法：
+  // import store from "@/store/index";
+  // store.getters['login/permissionList']
   getters: {
     permissionList: (state:any) => state.permissionList,
   }

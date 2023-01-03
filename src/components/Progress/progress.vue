@@ -1,5 +1,5 @@
 <template>
-  <!-- <div>11111</div> -->
+  <div>{{data.modelVisible}}</div>
   <div class="m-progress" :style="`width:${width}px;`">
     <div class="m-progress-outer">
       <div class="m-progress-inner">

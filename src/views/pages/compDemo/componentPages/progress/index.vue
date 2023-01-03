@@ -1,5 +1,6 @@
 <template>
   <div class="p-20 flex-center">
+    {{state.count}}
     <component
       :is="typeComponentMap.progress"
       :progress="progressData"
@@ -13,6 +14,10 @@
 </template>
 <script lang="ts" setup>
 import { ref, Ref, onMounted } from "vue";
+import { useStore } from 'vuex'
+import store from "@/store/index";
+ const storea = useStore()
+ console.log('123465',storea,store)
 //在引入子组件时，虽然不用注册，但是引入时，组件名称要与文件名称一致
 import progress from "@/components/Progress/progress.vue";
 const typeComponentMap = {
@@ -38,12 +43,19 @@ const aaa = (data: string) => {
 const content = ref("content");
 const cccc=()=>{
   console.log('父组件获取子组件的值',content.value.modelVisible)
+  content.value.modelVisible=true//
   content.value.bbb('我是传参')
 }
 // ---->
 
+const state = ref({
+  count: 0
+})
+
 onMounted(() => {
   changeProgress();
+  state.value.count=123
+  console.log(999,state.value.count)
 });
 </script>
 <style lang="scss" scoped>
