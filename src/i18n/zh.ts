@@ -4,7 +4,7 @@ export default {
   },
   route:{
     photo:'日常',
-    pages:'测试页面',
+    pages:'接口测试',
     assembly:'组件',
     dashboard:'首页',
     TODOLIST:'任务清单',
