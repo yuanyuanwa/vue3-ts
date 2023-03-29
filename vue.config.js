@@ -1,11 +1,22 @@
 const { defineConfig } = require('@vue/cli-service')
 const path = require('path')
 const apiMocker = require('webpack-api-mocker')
+const webpack = require('webpack')
+
+function resolve(dir) {
+  return path.join(__dirname, dir)
+}
 
 module.exports = defineConfig({
-	transpileDependencies: true,
-	lintOnSave: false,
-	devServer: {
+  transpileDependencies: true,
+  lintOnSave: false,
+  chainWebpack: config => {
+    config.resolve.alias
+      .set('@', resolve('src'))
+      .set('assets', resolve('src/assets'))
+      .set('i18n', resolve('vue-i18n/dist/vue-i18n.cjs.js'))
+  },
+  devServer: {
     port: 8887,
     proxy: {
       '/testApi': {
@@ -13,7 +24,7 @@ module.exports = defineConfig({
         pathRewrite: {
           '^/testApi': ''
         },
-				logLevel:'debug',
+        logLevel: 'debug',
         changeOrigin: true
       },
       '/localApi': {
@@ -21,7 +32,7 @@ module.exports = defineConfig({
         pathRewrite: {
           '^/localApi': ''
         },
-				logLevel:'debug',
+        logLevel: 'debug',
         changeOrigin: true
       }
     }

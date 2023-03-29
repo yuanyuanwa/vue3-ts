@@ -147,6 +147,26 @@ export const DynamicRoutes = [
             ]
           },
           {
+            path: "cartoon",
+            component: () => import('@/components/view/view.vue'),
+            name: "Cartoon",
+            meta: {
+              name: "动画",
+              icon: "Cherry",
+            },
+            children: [
+              {
+                path: "button",
+                component: () => import('@/views/pages/compDemo/cartoon/button/index.vue'),
+                name: "Button",
+                meta: {
+                  name: "按钮类",
+                  icon: "Tickets",
+                },
+              }
+            ]
+          },
+          {
             path: "components",
             component: () => import('@/components/view/view.vue'),
             name: "Components",

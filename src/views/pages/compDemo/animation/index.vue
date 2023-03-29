@@ -1,10 +1,10 @@
 <template>
   <div style="width: 600px" class="p-20">
-    <marquee
+    <!-- <marquee
       ><span style="font-weight: bolder; font-size: 20px"
-        >正常心跳:__/\__/\____看见你的心跳:_/\_/\_/\_/\_和你聊天的心跳:/\/\/\/\/\/\/\/\/\你不理我的心跳:________</span
+        >1233215423187447345171431245231874873251421</span
       ></marquee
-    >
+    > -->
   </div>
   <div class="p-10">
     <div class="flex-align-center pb-20">
@@ -169,8 +169,8 @@
 import { ref } from "vue";
 const imageUrl = require("@/assets/img/6.webp");
 
-let inputText: string = ref("");
-let searchText: string = ref("");
+let inputText = ref("");
+let searchText = ref("");
 
 //获取输入框正在输入的值，包括没有还没有输入到输入框但是正在输入的值
 //@input=‘search’
