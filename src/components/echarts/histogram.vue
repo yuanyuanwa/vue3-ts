@@ -69,6 +69,7 @@ export default defineComponent({
     let mapBox = ref<any>();
     let echart = ref<any>(); //也可以用const echart = ref<any>();
 
+    console.log('echart',echart)
     const initMap = () => {
       if (mapChart != null && mapChart != "" && mapChart != undefined) {
         mapChart.dispose(); //销毁

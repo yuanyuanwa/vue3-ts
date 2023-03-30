@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-center">
+  <div class="flex-center" style="height: 200px">
     <!-- https://code.juejin.cn/pen/7168265896345993247 -->
     <div class="container_wrap">
       <button class="btn-pill-nb">
