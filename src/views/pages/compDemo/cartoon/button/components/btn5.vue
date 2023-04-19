@@ -8,21 +8,24 @@
 import { onBeforeUnmount, onMounted, ref } from "vue";
 import { Star, Move, Draw, DrawLine, generateStar } from "./index";
 
+//获取dom
 const star_canvas = ref<HTMLCanvasElement>();
 let ctx: CanvasRenderingContext2D;
 
 let timer: any;
 
 const initStar = () => {
+  //获取上下文对象
   ctx = star_canvas.value!.getContext("2d") as CanvasRenderingContext2D;
+  //设置画笔的边缘和填充颜色
   ctx.fillStyle = "white";
   ctx.strokeStyle = "white";
   let starArr: Star[] = [];
   for (let i = 0; i < 20; i++) {
+    //generateStar()生成一颗星星
     let star = generateStar();
     starArr.push(star);
   }
-
   // 鼠标star
   const mouse_star = generateStar();
   mouse_star.speedX = 0;
@@ -34,12 +37,15 @@ const initStar = () => {
   };
 
   timer = setInterval(() => {
+    //清空画布
     ctx.clearRect(0, 0, 1000, 800);
     // 鼠标star移动
     Draw(ctx, mouse_star);
     // star移动
     starArr.forEach((star: Star) => {
+      //将星星绘制在画布上
       Draw(ctx, star);
+      //星星移动
       Move(star);
     });
 
@@ -69,6 +75,8 @@ const initStar = () => {
     }
   };
 };
+
+//设置画布大小，获取上下文对象
 const initCanvas = () => {
   ctx = star_canvas.value?.getContext("2d") as CanvasRenderingContext2D;
   star_canvas.value!.width = 1000;

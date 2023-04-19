@@ -40,7 +40,7 @@ const isDashboard = (route: any) => {
   return name.trim().toLocaleLowerCase() === "Dashboard".toLocaleLowerCase();
 };
 const getBreadcrumb = () => {
-  console.log(999,store.state)
+  console.log(999,route.matched)
   store.commit("login/SET_MENU", route.matched[1].children);
   let matched: any = route.matched.filter(
     (item) => item.meta && item.meta.name
@@ -60,6 +60,7 @@ const router = useRouter();
 watch(
   () => route, // 注意这里
   (val, old) => {
+    console.log(111,route.path.startsWith("/redirect/"))
     if (route.path.startsWith("/redirect/")) {
       return;
     }
