@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div class="content" style="margin-top: 20px">
+      <div class="text">测试测试</div>
+    </div>
     <div :class="mask"></div>
     <div :class="box" style="z-index: 999999999999">
       指引指引指引指引指引指引指引
@@ -160,6 +163,28 @@ onMounted(() => {
   border-radius: 12px;
   box-shadow: inset 8px 8px 6px #d9dce6, inset -5px -5px 15px #f5f9fd,
     inset -5px -5px 15px #f5f9fd, inset 7px 7px 6px #d9dce6;
+}
+
+.content {
+  height: 50px;
+  width: 100%;
+  background: linear-gradient(
+    0.753turn,
+    rgba(255, 67, 106, 0.1) 4.68%,
+    rgba(255, 160, 71, 0.1) 99.75%
+  );
+  position: relative;
+}
+.text {
+  text-align: center;
+  line-height: 50px;
+  color: pink;
+  transition: 0.3s;
+  opacity: 0;
+}
+.content:hover .text {
+  opacity: 1;
+  transform: translateX(-30px);
 }
 
 /* 按钮选中缩放动画 */
