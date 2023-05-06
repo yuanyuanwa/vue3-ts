@@ -6,6 +6,7 @@
     <component :is="compGrounp.btn4" ref="btn4" />
     <component :is="compGrounp.btn5" ref="btn5" />
     <component :is="compGrounp.btn6" ref="btn6" />
+    <component :is="compGrounp.btn7" ref="btn7" />
   </div>
 </template>
 <script lang="ts" setup>
@@ -16,6 +17,7 @@ import btn3 from "./components/btn3.vue";
 import btn4 from "./components/btn4.vue";
 import btn5 from "./components/btn5.vue";
 import btn6 from "./components/btn6.vue";
+import btn7 from "./components/btn7.vue";
 
 const compGrounp = {
   btn1: btn1,
@@ -24,6 +26,7 @@ const compGrounp = {
   btn4: btn4,
   btn5: btn5,
   btn6: btn6,
+  btn7: btn7,
 };
 </script>
 <style lang="scss" scoped>
