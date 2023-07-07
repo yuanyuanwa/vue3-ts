@@ -9,9 +9,9 @@
 @import "../src/style/uniformStyle.scss";
 //css设置变量
 :root {
-      --reed: red;
-      --bluee:blue;
-    }
+  --reed: red;
+  --bluee: blue;
+}
 #app {
   /* font-family: Avenir, Helvetica, Arial, sans-serif; */
   -webkit-font-smoothing: antialiased;
@@ -39,5 +39,12 @@
 ::-moz-scrollbar-thumb {
   background-color: skyblue;
   border-radius: 3px;
+}
+
+// css中 body和html的width和height一定不要设置宽高！！否则不生效！如果父页面或者别处加了不能随意更改，这里则需加上
+html,
+body {
+  width: auto; //横向滚动的页面只需加width
+  height: auto; //竖向滚动的页面只需加height
 }
 </style>

@@ -201,11 +201,11 @@ const search = (event: any) => {
 .img {
   width: 100px;
   height: 100px;
-  transition: all 0.5s ease;
+  transition: all 8s cubic-bezier(.23, 1, .32, 1);
 }
 
 .img:hover {
-  transform: scale(1.1);
+  transform: scale(1.3);
 }
 
 .rotate {
