@@ -11,6 +11,8 @@
     <div id="animal_div"></div>
     <component :is="compGrounp.btn7" ref="btn7" />
     <btn8 />
+    <btn9 />
+    <btn10 />
   </div>
 </template>
 <script lang="ts" setup>
@@ -34,6 +36,8 @@ const compGrounp = {
   btn7: btn7,
 };
 const btn8 = defineAsyncComponent(() => import("./components/btn8.vue"));
+const btn9 = defineAsyncComponent(() => import("./components/btn9.vue"));
+const btn10 = defineAsyncComponent(() => import("./components/btn10.vue"));
 
 const bottom = ref(false);
 
