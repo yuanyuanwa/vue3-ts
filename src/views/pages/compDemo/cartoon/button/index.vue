@@ -10,11 +10,11 @@
     <component :is="compGrounp.btn6" ref="btn6" />
     <div id="animal_div"></div>
     <component :is="compGrounp.btn7" ref="btn7" />
-    
+    <btn8 />
   </div>
 </template>
 <script lang="ts" setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, defineAsyncComponent } from "vue";
 //在引入子组件时，虽然不用注册，但是引入时，组件名称要与文件名称一致
 import btn1 from "./components/btn1.vue";
 import btn2 from "./components/btn2.vue";
@@ -33,6 +33,7 @@ const compGrounp = {
   btn6: btn6,
   btn7: btn7,
 };
+const btn8 = defineAsyncComponent(() => import("./components/btn8.vue"));
 
 const bottom = ref(false);
 
@@ -95,7 +96,6 @@ const scrolling = (e: any) => {
   // animation: slideUp 3s forwards;
   /* 动画持续1秒，过程无限循环，由下向上滑动 */
 }
-
 </style>
 <style>
 @keyframes slideUp {

@@ -81,7 +81,7 @@ export default defineComponent({
   },
   setup() {
     const route = useRoute();
-    
+
     store.commit("login/SET_NAVBAR", route.matched[0].children);
     let navBar = ref("");
     navBar.value = store.state.login.navBar;
