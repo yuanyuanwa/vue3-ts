@@ -1,140 +1,122 @@
 <template>
-  <div
-    style="
-      display: flex;
-      justify-content: space-between;
-      overflow: auto;
-      position: relative;
-    "
-    ref="scrollview"
-    class="aaa"
-  >
-    <div class="content" :style="{ 'margin-right': whether ? '95px' : '0px' }">
-      <div>123</div>
-      <div>123</div>
-      <div>123</div>
-      <div>123</div>
-      <div>123</div>
-      <div>123</div>
-      <div>123</div>
-      <div>123</div>
-      <div>123</div>
-      <div>123</div>
-      <div>123</div>
-      <div>123</div>
-      <div>123</div>
-      <div>123</div>
-      <div>123</div>
-      <div>123</div>
-      <div>123</div>
-      <div>123</div>
-      <div>123</div>
-      <div>123</div>
-      <div>123</div>
-      <div>123</div>
-      <div>123</div>
-      <div>123</div>
-      <div>123</div>
-      <div>123</div>
-      <div>123</div>
-      <div>123</div>
-      <div>123</div>
-      <div>123</div>
-      <div>123</div>
-      <div>123</div>
-      <div>123</div>
-      <div>123</div>
-      <div>123</div>
-      <div>123</div>
+  <div style="display: flex;" class="p-20">
+    <div style="width: 200px">
+      <p
+        v-for="(item, index) in list"
+        :key="index"
+        @click="clicks(index)"
+        :class="{ green: indexs == index }"
+      >
+        {{ item.title }}
+      </p>
     </div>
-    <div :class="whether ? 'isFixed' : ''">
-
-      <ul class="tabs list" :style="{'margin-top':whether?'0px':'40px'}">
-        <li
-          style="list-style-type: none"
-          v-for="(item, index) in tabsList2"
-          :key="index"
-          :class="{ active: index === activeIndex }"
-          @click.stop="toContent(item, index)"
-        >
-          {{ item.name }}
-        </li>
-      </ul>
+    <div
+      style="width: 1000px; height: 50vh; overflow: scroll"
+      @scroll="handScroll"
+    >
+      <div v-for="ite in list" :key="ite.id" class="a">
+        <p style="">{{ ite.title }}</p>
+        <p>{{ ite.answer }}</p>
+      </div>
     </div>
   </div>
 </template>
-<script lang="ts" setup>
-import { number } from "echarts";
-import {
-  ref,
-  Ref,
-  reactive,
-  watch,
-  toRefs,
-  onMounted,
-  onBeforeUnmount,
-  nextTick,
-} from "vue";
-const tabsList2 = reactive([
-  { name: "课程简介", value: "content" },
-  { name: "研制背景", value: "background" },
-  { name: "课程目标", value: "goal" },
-  { name: "课程内容", value: "content" },
-  { name: "课程实施", value: "operationInfo" },
-  { name: "课程评价", value: "eval" },
-  { name: "建设经验", value: "exp" },
-  { name: "建设成效", value: "effect" },
-  { name: "存在问题", value: "problem" },
-  { name: "课程体系框架", value: "structure" },
-  { name: "教学案例", value: "teacherCaseInfo" },
-]);
-const activeIndex: Ref<number> = ref(1);
-const whether: Ref<boolean> = ref(false);
-const handleScroll = () => {
-  //计算滚动条位置
-  var scrollTop =
-    document.querySelector(".aaa").pageYOffset ||
-    document.querySelector(".aaa").scrollTop ||
-    document.querySelector(".aaa").scrollTop;
-  //计算绑定div位置
-  var offsetTop = document.querySelector(".list").offsetTop;
-  console.log(999, scrollTop,offsetTop);
-  //进行比较设置位置fixed
-  whether.value = scrollTop > offsetTop;
-};
-const scrollview = ref(null);
+<script setup>
+import { ref } from "vue";
+let list = [
+  {
+    id: 1,
+    title: "1.什么是html",
+    answer:
+      "1.超文本标记语言定义了多种数据类型的元素内容，如脚本数据和样式表的数据，和众多类型的属性值，包括ID、名称、URI、数字、长度单位、语言、媒体描述符、颜色、字符编码、日期和时间等。所有这些数据类型都是专业的字符数据",
+  },
+  {
+    id: 2,
+    title: "2.什么是css",
+    answer:
+      "2.超文本标记语言定义了多种数据类型的元素内容，如脚本数据和样式表的数据，和众多类型的属性值，包括ID、名称、URI、数字、长度单位、语言、媒体描述符、颜色、字符编码、日期和时间等。所有这些数据类型都是专业的字符数据",
+  },
+  {
+    id: 3,
+    title: "3.什么是html",
+    answer:
+      "3.超文本标记语言定义了多种数据类型的元素内容，如脚本数据和样式表的数据，和众多类型的属性值，包括ID、名称、URI、数字、长度单位、语言、媒体描述符、颜色、字符编码、日期和时间等。所有这些数据类型都是专业的字符数据",
+  },
+  {
+    id: 4,
+    title: "4.什么是html",
+    answer:
+      "4.超文本标记语言定义了多种数据类型的元素内容，如脚本数据和样式表的数据，和众多类型的属性值，包括ID、名称、URI、数字、长度单位、语言、媒体描述符、颜色、字符编码、日期和时间等。所有这些数据类型都是专业的字符数据",
+  },
+  {
+    id: 5,
+    title: "5.什么是html",
+    answer:
+      "5.超文本标记语言定义了多种数据类型的元素内容，如脚本数据和样式表的数据，和众多类型的属性值，包括ID、名称、URI、数字、长度单位、语言、媒体描述符、颜色、字符编码、日期和时间等。所有这些数据类型都是专业的字符数据",
+  },
+  {
+    id: 6,
+    title: "6.什么是html",
+    answer:
+      "6.超文本标记语言定义了多种数据类型的元素内容，如脚本数据和样式表的数据，和众多类型的属性值，包括ID、名称、URI、数字、长度单位、语言、媒体描述符、颜色、字符编码、日期和时间等。所有这些数据类型都是专业的字符数据",
+  },
+  {
+    id: 7,
+    title: "7.什么是html",
+    answer:
+      "7.超文本标记语言定义了多种数据类型的元素内容，如脚本数据和样式表的数据，和众多类型的属性值，包括ID、名称、URI、数字、长度单位、语言、媒体描述符、颜色、字符编码、日期和时间等。所有这些数据类型都是专业的字符数据",
+  },
+  {
+    id: 8,
+    title: "8.什么是html",
+    answer:
+      "8.超文本标记语言定义了多种数据类型的元素内容，如脚本数据和样式表的数据，和众多类型的属性值，包括ID、名称、URI、数字、长度单位、语言、媒体描述符、颜色、字符编码、日期和时间等。所有这些数据类型都是专业的字符数据",
+  },
+  {
+    id: 9,
+    title: "9.什么是html",
+    answer:
+      "9.超文本标记语言定义了多种数据类型的元素内容，如脚本数据和样式表的数据，和众多类型的属性值，包括ID、名称、URI、数字、长度单位、语言、媒体描述符、颜色、字符编码、日期和时间等。所有这些数据类型都是专业的字符数据",
+  },
+  {
+    id: 10,
+    title: "10.什么是html",
+    answer:
+      "8.超文本标记语言定义了多种数据类型的元素内容，如脚本数据和样式表的数据，和众多类型的属性值，包括ID、名称、URI、数字、长度单位、语言、媒体描述符、颜色、字符编码、日期和时间等。所有这些数据类型都是专业的字符数据",
+  },
+  {
+    id: 11,
+    title: "11.什么是html",
+    answer:
+      "9.超文超文本标记语言定义了超文本标记语言定义了超文本标记语言定义了超文本标记语言定义了超文本标记语言定义了超文本标记语言定义了超文本标记语言定义了本标记语言定义了多种数据类型的元素内容，如脚本数据和样式表的数据，和众多类型的属性值，包括ID、名称、URI、数字、长度单位、语言、媒体描述符、颜色、字符编码、日期和时间等。所有这些数据类型都是专业的字符数据",
+  },
+];
 
-onMounted(() => {
-  nextTick(() => {
-    console.log(898989, document.querySelector(".aaa"), scrollview);
-    document.querySelector(".aaa").addEventListener("scroll", handleScroll);
+const indexs = ref(0);
+const clicks = (index) => {
+  indexs.value = index;
+  document.getElementsByClassName("a")[index].scrollIntoView({
+    behavior: "smooth", // 平滑过渡
+    block: "start", // 上边框与视窗顶部平齐。默认值
   });
-});
-onBeforeUnmount(() => {
-  document.querySelector(".aaa").removeEventListener("scroll", handleScroll);
-});
+};
+//  同步改样式
+const handScroll = (e) => {
+  let scrollItems = document.querySelectorAll(".a");
+  for (let i = scrollItems.length - 1; i >= 0; i--) {
+    // 判断滚动条滚动距离是否大于当前滚动项可滚动距离
+    let judge =
+      e.target.scrollTop >= scrollItems[i].offsetTop - scrollItems[0].offsetTop;
+    if (judge) {
+      indexs.value = i;
+      break;
+    }
+  }
+};
 </script>
-<style lang="scss" scoped>
-.active {
-  color: pink;
-}
-.content {
-  background: pink;
-  flex-grow: 1;
-  height: 80vh;
-}
-.content::-webkit-scrollbar {
-  width: 0px;
-  height: 0px;
-}
-.content::-webkit-scrollbar-thumb {
-  background-color: skyblue;
-  border-radius: 3px;
-}
-.isFixed {
-  position: fixed;
-  top: 119px;
-  right: 5px;
-  z-index: 1000;
+<style >
+.green {
+  font-weight: 700;
+  color: green;
 }
 </style>
