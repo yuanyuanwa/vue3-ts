@@ -1,5 +1,6 @@
 <template>
   <div style="display: flex;" class="p-20">
+    <!-- https://blog.csdn.net/huai42717/article/details/129152743 -->
     <div style="width: 200px">
       <p
         v-for="(item, index) in list"

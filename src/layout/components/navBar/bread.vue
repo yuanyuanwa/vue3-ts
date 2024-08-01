@@ -17,7 +17,7 @@
 import { ArrowRight } from "@element-plus/icons-vue";
 import { ref, watch, reactive } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import pathToRegexp from "path-to-regexp";
+import * as pathToRegexp from 'path-to-regexp'
 import store from "@/store/index";
 import i18n from "@/i18n/index";
 

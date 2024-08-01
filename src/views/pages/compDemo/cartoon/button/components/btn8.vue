@@ -44,9 +44,9 @@ const trafficLightFun = async () => {
 };
 trafficLightFun();
 
-const ratate = ref();
 
-const changeTrafficLight2 = (duration: any, color: any, num1: string) => {
+const ratate = ref();
+const changeTrafficLight2 = (duration: any, color: any) => {
   return new Promise(function (resolve, reject) {
     nextTick(() => {
       ratate.value.style.transform = color;
@@ -55,8 +55,8 @@ const changeTrafficLight2 = (duration: any, color: any, num1: string) => {
   });
 };
 const trafficLightFun2 = async () => {
-  await changeTrafficLight2(1000, "rotateY(0deg)", "icon1");
-  await changeTrafficLight2(1000, "rotateY(180deg)", "icon2");
+  await changeTrafficLight2(1000, "rotateY(0deg)");
+  await changeTrafficLight2(1000, "rotateY(180deg)");
   trafficLightFun2();
 };
 trafficLightFun2();
