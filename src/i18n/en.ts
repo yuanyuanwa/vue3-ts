@@ -21,6 +21,7 @@ export default {
     '进度条': 'progress',
     '锚点滚动': 'maodian',
     '动画': 'cartoon',
-    '按钮类': 'button'
+    '按钮类': 'button',
+    '可视化编辑': 'edit',
   }
 }

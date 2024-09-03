@@ -213,6 +213,15 @@ export const DynamicRoutes = [
               icon: "Chicken",
             },
           },
+          {
+            path: "edit",
+            component: () => import('@/views/pages/compDemo/edit/index.vue'),
+            name: "可视化编辑",
+            meta: {
+              name: "可视化编辑",
+              icon: "Chicken",
+            },
+          },
         ]
       },
       {

@@ -70,7 +70,7 @@ export default defineComponent({
   setup(props) {
     const route = useRoute();
     const router = useRouter();
-    let sidebarMenu = ref("");
+    let sidebarMenu:any= ref("");
     watch(
       () => store.state.login.sidebarMenu, // 注意这里
       (val, old) => {

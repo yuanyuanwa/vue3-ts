@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --noEmit",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.0.6",
+    "@vue/cli": "latest",
     "@wangeditor/editor": "^5.1.1",
     "@wangeditor/editor-for-vue": "^5.1.12",
     "axios": "^0.27.2",
@@ -17,11 +18,13 @@
     "element-plus": "^2.1.11",
     "mockjs": "^1.1.0",
     "path-to-regexp": "^6.2.1",
-    "vue": "^3.2.13",
+    "v3-drag-zoom": "^1.1.20",
+    "vue": "^3.4.35",
     "vue-axios": "^3.4.1",
     "vue-i18n": "^9.2.0-beta.40",
     "vue-router": "^4.0.3",
     "vue3-ts": "file:",
+    "vuedraggable": "next",
     "vuex": "^4.0.0"
   },
   "devDependencies": {

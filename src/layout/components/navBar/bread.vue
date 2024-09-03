@@ -52,7 +52,7 @@ const getBreadcrumb = () => {
     );
   }
   levelList.value = matched.filter(
-    (item) => item.meta && item.meta.name && item.meta.breadcrumb !== false
+    (item:any) => item.meta && item.meta.name && item.meta.breadcrumb !== false
   );
 };
 const route = useRoute();
